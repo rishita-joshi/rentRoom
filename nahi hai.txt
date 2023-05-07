@@ -1,0 +1,23 @@
+Signup page
+login page
+network partner
+about us
+details page -- alignment , location 2 baar hai
+
+
+advert details k contact ko bottomnav se alag karna hai\
+
+compare me kya kya aayega
+
+
+nav bar ka puchna hai privacy me nav bar nhi aana chahiye 
+
+
+
+----------web------------
+Saved advert main page, Side Section scrollable or not
+conparison on which basis in saved advert page as well as in app advert page.
+
+filter page
+sorting popup
+filter popup

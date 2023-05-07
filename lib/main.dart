@@ -1,21 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:rent_a_room/screens/bottom%20nav/settings.dart';
+import 'package:rent_a_room/screens/login.dart';
+import 'package:rent_a_room/screens/registeration%20copy.dart';
+import 'package:rent_a_room/screens/registeration.dart';
+import 'package:rent_a_room/themes/theme.dart';
+
+import 'screens/splash.dart';
+import 'package:rent_a_room/contents.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+  MyApp({super.key});
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        fontFamily: 'Gilroy',
       ),
-      home: splashScreen(),
+      home: SplashScreen(),
     );
   }
 }

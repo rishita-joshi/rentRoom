@@ -31,15 +31,31 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
+  persistent_bottom_nav_bar_v2: ^4.2.8
+  assorted_layout_widgets: ^8.0.0
+  page_indicator: ^0.4.1
+  page_view_indicators: ^2.0.0
+  jovial_svg: ^1.1.14
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+  location: ^4.3.0
+  auth_buttons: ^3.0.0
+  google_sign_in: ^6.0.2
+  firebase_auth: ^4.3.0
+  flutter_facebook_auth: ^5.0.8
+  
+  
+  # apple_sign_in: ^0.1.0
+  
+  
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
@@ -53,15 +69,17 @@ dev_dependencies:
 
 # The following section is specific to Flutter packages.
 flutter:
-
-  # The following line ensures that the Material Icons font is
+    # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+      - assets/images/Splash/
+      - assets/images/
+      # - assets/images/Splash/bg.png
+      
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
@@ -75,10 +93,13 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
-  #   - family: Schyler
-  #     fonts:
-  #       - asset: fonts/Schyler-Regular.ttf
+  fonts:
+    - family: Gilroy
+      fonts:
+        - asset: fonts/Gilroy-Regular.ttf
+        - asset: fonts/Gilroy-Bold.ttf
+        - asset: fonts/Gilroy-SemiBold.ttf
+        - asset: fonts/Gilroy-Medium.ttf
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
