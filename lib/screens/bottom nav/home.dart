@@ -6,6 +6,7 @@ import 'package:rent_a_room/screens/details.dart';
 import 'package:rent_a_room/screens/filter.dart';
 
 import '../../bloc/theme_cubit.dart';
+import '../../contents.dart';
 import '../../themes/myColors.dart';
 
 class HomePage extends StatefulWidget {
@@ -146,8 +147,12 @@ color: Theme.of(context).iconTheme.color,                   ),
                       onPressed: () {
                         Navigator.push(
                           context,
-                          MaterialPageRoute(builder: (context) => FilterPage()),
+                          MaterialPageRoute(builder: (context) => Contents()),
                         );
+                        // Navigator.push(
+                        //   context,
+                        //   MaterialPageRoute(builder: (context) => FilterPage()),
+                        // );
                       },
                       icon: Container(
                         decoration: BoxDecoration(

@@ -22,7 +22,7 @@ class _bottomNavState extends State<bottomNav> {
     HomePage(),
     settings(),
     RegisterPage(),
-    chat(),
+    ChatPage(),
     profile(),
   ];
 

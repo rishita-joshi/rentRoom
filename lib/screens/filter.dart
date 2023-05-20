@@ -155,27 +155,29 @@ class _FilterPageState extends State<FilterPage> {
               ),
             ),
             Spacer(),
-            Center(
-              child: InkWell(
-                onTap: () {},
-                child: Container(
-                  padding: EdgeInsets.all(10),
-                  height: 57,
-                  width: 301,
-                  decoration: BoxDecoration(
-                      color: ColorPalette.blackColor,
-                      borderRadius: BorderRadius.circular(13)),
-                  child: Center(
-                      child: Text(
-                    'Filter',
-                    style: TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.w600,
-                        color: Colors.white),
-                  )),
-                ),
-              ),
-            ),
+
+            ElevatedButton(onPressed: (){}, child: Text("data")),
+            // Center(
+            //   child: InkWell(
+            //     onTap: () {},
+            //     child: Container(
+            //       padding: EdgeInsets.all(10),
+            //       height: 57,
+            //       width: 301,
+            //       decoration: BoxDecoration(
+            //           color: ColorPalette.blackColor,
+            //           borderRadius: BorderRadius.circular(13)),
+            //       child: Center(
+            //           child: Text(
+            //         'Filter',
+            //         style: TextStyle(
+            //             fontSize: 18,
+            //             fontWeight: FontWeight.w600,
+            //             color: Colors.white),
+            //       )),
+            //     ),
+            //   ),
+            // ),
             SizedBox(
               height: 20,
             )

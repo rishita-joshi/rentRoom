@@ -64,7 +64,7 @@ class profile extends StatelessWidget {
               SizedBox(height: 20),
               Container(
                   decoration: BoxDecoration(
-                      color: Color(0xffF6F6F6),
+                     // color: Color(0xffF6F6F6),
                       borderRadius: BorderRadius.all(Radius.circular(10))),
                   padding: EdgeInsets.all(20),
                   margin: EdgeInsets.all(10),

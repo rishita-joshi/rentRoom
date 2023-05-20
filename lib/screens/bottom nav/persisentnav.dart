@@ -21,7 +21,7 @@ class BottomNavBar extends StatelessWidget {
         HomePage(),
         settings(),
         RegisterPage(),
-        chat(),
+        ChatPage(),
         profile(),
       ];
     }
