@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../themes/myColors.dart';
+import '../themes/ColorPalette.dart';
 
 class SavedPage extends StatefulWidget {
   @override
@@ -50,7 +50,6 @@ class SavedPageState extends State<SavedPage> {
           padding: const EdgeInsets.only(top: 50),
           child: Column(children: [
             AppBar(
-              backgroundColor: Colors.white,
               elevation: 0,
               leading: Padding(
                 padding: const EdgeInsets.only(left: 25.0),
@@ -89,7 +88,6 @@ class SavedPageState extends State<SavedPage> {
               ),
             ),
             Container(
-              color: Colors.white,
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [
@@ -122,7 +120,6 @@ class SavedPageState extends State<SavedPage> {
         ),
       ),
       body: Container(
-        color: Colors.white,
         child: ListView.builder(
           itemCount: _cardData.length,
           itemBuilder: (BuildContext context, int index) {
@@ -140,7 +137,6 @@ class SavedPageState extends State<SavedPage> {
     return Container(
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(10),
-        color: Colors.white,
         boxShadow: [
           BoxShadow(
             color: Colors.grey.withOpacity(0.5),

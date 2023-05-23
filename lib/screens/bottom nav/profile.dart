@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
 
 class profile extends StatelessWidget {
   final List<Map<String, String>> adverts = [
@@ -24,12 +24,10 @@ class profile extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.only(top: 25.0),
           child: AppBar(
-            backgroundColor: Colors.white,
             elevation: 0.0,
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Colors.black,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),
@@ -54,7 +52,6 @@ class profile extends StatelessWidget {
                 height: 150,
                 width: double.infinity,
                 decoration: BoxDecoration(
-                  color: Colors.white,
                 ),
                 child: CircleAvatar(
                   radius: 50,

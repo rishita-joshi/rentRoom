@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:rent_a_room/screens/auth/login.dart';
+import 'package:rent_a_room/screens/bottom%20nav/chat.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/screens/bottom%20nav/persisentnav.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
@@ -6,13 +8,13 @@ import 'package:rent_a_room/screens/bottom%20nav/settings.dart';
 import 'package:rent_a_room/screens/contact.dart';
 import 'package:rent_a_room/screens/details.dart';
 import 'package:rent_a_room/screens/filter.dart';
-import 'package:rent_a_room/screens/login.dart';
 import 'package:rent_a_room/screens/privacy.dart';
 import 'package:rent_a_room/screens/recommendations.dart';
-import 'package:rent_a_room/screens/registeration.dart';
 import 'package:rent_a_room/screens/saved.dart';
 import 'package:rent_a_room/screens/splash.dart';
 import 'package:rent_a_room/screens/welcome.dart';
+
+import '../screens/auth/registeration.dart';
 
 class Contents extends StatelessWidget {
   const Contents({super.key});
@@ -316,6 +318,17 @@ class Contents extends StatelessWidget {
               ),
             ),
           ),
+
+TextButton(onPressed: (){
+ Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ChatPage()),
+              );
+
+
+}, child: Text("chat page"),)
+
+
         ]),
       ),
     );

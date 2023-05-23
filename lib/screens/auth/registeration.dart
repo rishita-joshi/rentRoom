@@ -3,7 +3,8 @@ import 'dart:ui';
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
 
-import '../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
+
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -26,7 +27,6 @@ class _RegisterPageState extends State<RegisterPage> {
         child: Padding(
           padding: const EdgeInsets.only(top: 25.0),
           child: AppBar(
-            backgroundColor: Colors.white,
             elevation: 0.0,
             leading: IconButton(
               icon: Icon(

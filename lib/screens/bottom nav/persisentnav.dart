@@ -4,9 +4,9 @@ import 'package:rent_a_room/screens/bottom%20nav/chat.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
 import 'package:rent_a_room/screens/bottom%20nav/settings.dart';
-import 'package:rent_a_room/screens/registeration.dart';
 
-import '../../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
+import '../auth/registeration.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({Key? key}) : super(key: key);

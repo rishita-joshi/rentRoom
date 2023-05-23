@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:rent_a_room/config/routes.dart';
+import 'package:rent_a_room/screens/auth/login.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
-import 'package:rent_a_room/screens/login.dart';
 import 'package:rent_a_room/screens/privacy.dart';
 
-import '../../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
 
 class settings extends StatefulWidget {
   @override
@@ -28,7 +29,6 @@ class _state extends State<settings> {
         child: Padding(
           padding: const EdgeInsets.only(top: 25.0),
           child: AppBar(
-            backgroundColor: Colors.white,
             elevation: 0.0,
             leading: IconButton(
               icon: Icon(
@@ -343,11 +343,11 @@ class _state extends State<settings> {
                                     size: 22,
                                   ),
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => LoginPage()),
-                                    );
+
+
+                                    Navigator.pushNamed(context, Routes.loginRoute);
+                                 
+                                  
                                   },
                                 ),
                               ],

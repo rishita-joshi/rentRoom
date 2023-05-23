@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:rent_a_room/config/routes.dart';
+import 'package:rent_a_room/screens/bottom%20nav/persisentnav.dart';
 
-import '../themes/myColors.dart';
-import 'bottom nav/persisentnav.dart';
+import '../../themes/ColorPalette.dart';
+
 
 class LoginPage extends StatelessWidget {
   @override
@@ -177,10 +179,13 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.all(15.0),
                     // shape: RoundedRectangleBorder(),
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => BottomNavBar()),
-                      );
+
+
+                      Navigator.pushNamed(context, Routes.bottomBarRoute);
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => BottomNavBar()),
+                      // );
                     },
                   ),
                 ),

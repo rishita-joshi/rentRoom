@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../themes/myColors.dart';
+import '../themes/ColorPalette.dart';
 
 class details extends StatefulWidget {
   const details({super.key});
@@ -750,12 +750,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             )),
                       ),
-                      Spacer(),
-                      Spacer(),
-                      Spacer(),
-                      Spacer(),
-                      Spacer(),
-                      Spacer(),
+                      
                       IconButton(
                         icon: ImageIcon(
                           AssetImage("assets/images/Splash/like.png"),

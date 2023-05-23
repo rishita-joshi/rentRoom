@@ -1,7 +1,6 @@
 
 import 'package:flutter/material.dart';
-import 'package:rent_a_room/font_asset.dart';
-import 'package:rent_a_room/themes/myColors.dart';
+import 'package:rent_a_room/themes/ColorPalette.dart';
 
 abstract class AppTheme {
   static ThemeData get lightTheme => ThemeData(
@@ -11,8 +10,6 @@ abstract class AppTheme {
      primary: ColorPalette.darkGrayColor, onPrimary: ColorPalette.whiteColor, 
      secondary: ColorPalette.lightBlueColor , onSecondary: ColorPalette.textColorGray, error: ColorPalette.redColor, onError: ColorPalette.redColor,
       background: ColorPalette.redColor, onBackground: ColorPalette.textColorGray, surface: ColorPalette.darkGrayColor, onSurface:  ColorPalette.darkGrayColor),
-       
-    
         scaffoldBackgroundColor: ColorPalette.whiteColor,
 
 appBarTheme: AppBarTheme(backgroundColor: ColorPalette.whiteColor ,

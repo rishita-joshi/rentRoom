@@ -47,7 +47,6 @@ class _RegisterPagState extends State<RegisterPag> {
       ),
       body: SingleChildScrollView(
         child: Container(
-          color: Color(0xff303147),
           padding: EdgeInsets.all(16.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,

@@ -1,13 +1,12 @@
 import 'dart:ui';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rent_a_room/config/contents.dart';
+import 'package:rent_a_room/config/font_asset.dart';
+import 'package:rent_a_room/config/routes.dart';
 import 'package:rent_a_room/screens/details.dart';
-import 'package:rent_a_room/screens/filter.dart';
-
 import '../../bloc/theme_cubit.dart';
-import '../../contents.dart';
-import '../../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -68,14 +67,10 @@ class _HomePageState extends State<HomePage> {
                   TextButton(onPressed: (){
    context.read<ThemeCubit>().switchTheme();
 }, child: context.read<ThemeCubit>().state.themeMode == ThemeMode.light ? Text("light" , style: TextStyle(color: Colors.amber),) : Text("dark" ,style: TextStyle(color: Colors.amber),)),
-
                   Text(
                     'Current Location',
-                    style: TextStyle(
-                      color: Color(0xff878787),
-                      fontSize: 14,
-                      fontWeight: FontWeight.w400,
-                    ),
+                    style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary),
+                    
                   ),
                   Row(
                     children: [
@@ -91,10 +86,7 @@ class _HomePageState extends State<HomePage> {
                             value: location,
                             child: Text(
                               location,
-                              style: TextStyle(
-                                  color: ColorPalette.blackColor,
-                                  fontWeight: FontWeight.w600,
-                                  fontSize: 14),
+                            style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary),
                             ),
                           );
                         }).toList(),
@@ -119,7 +111,8 @@ class _HomePageState extends State<HomePage> {
                 child: IconButton(
                   icon: Icon(Icons.notifications),
                   onPressed: () {},
-color: Theme.of(context).iconTheme.color,                   ),
+            color: Theme.of(context).iconTheme.color,        
+                       ),
               ),
             ],
           ),
@@ -145,6 +138,7 @@ color: Theme.of(context).iconTheme.color,                   ),
                     ),
                     suffixIcon: IconButton(
                       onPressed: () {
+
                         Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => Contents()),
@@ -167,7 +161,6 @@ color: Theme.of(context).iconTheme.color,                   ),
                     )),
               ),
             ),
-            SizedBox(height: 16),
             Container(
               height: 130,
               // width: MediaQuery.of(context).size.width * 2,
@@ -212,10 +205,7 @@ color: Theme.of(context).iconTheme.color,                   ),
             SizedBox(height: 16),
             Text(
               'Nearby Your Location',
-              // style: TextStyle(
-              //   fontWeight: FontWeight.w600,
-              //   fontSize: 16,
-              // ),
+             style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary, fontSize: 16 ),
             ),
             SizedBox(height: 8),
             Expanded(
@@ -256,6 +246,8 @@ color: Theme.of(context).iconTheme.color,                   ),
         children: [
           InkWell(
             onTap: () {
+
+              Navigator.pushNamed(context, Routes.pageDetailsRoute);
               Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => details()),
@@ -270,49 +262,25 @@ color: Theme.of(context).iconTheme.color,                   ),
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0 , top :3),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(
-                  adData['name'],
-                  style: TextStyle(fontSize: 14,
-                   ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(right: 10.0),
-                  child: ImageIcon(
-                    AssetImage("assets/images/Splash/likefill.png"),
-                    size: 30,
-                  ),
-                ),
-              ],
-            ),
+          Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                adData['name'],
+                        style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary , fontSize: 14),
+              ),
+              IconButton(icon: Icon(Icons.favorite_border), onPressed: () {  },),
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0 , top: 3),
-            child: Text(
-              adData['location'],
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-              
-                  ),
-            ),
+          Text(
+            adData['location'],
+            style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.primary , fontSize: 12),
           ),
-          Padding(
-            padding: const EdgeInsets.only(left: 15.0 , top:3.0),
-            child: Text(
-              adData['price'],
-              style: TextStyle(
-                  fontSize: 14,
-                  fontWeight: FontWeight.w600,
-                  ),
-            ),
-          ),
-          
+          Text(
+            adData['price'],
+              style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary, fontSize: 12),
+          ), 
         ],
       ),
     );

@@ -3,9 +3,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rent_a_room/bloc/theme_cubit.dart';
 import 'package:rent_a_room/bloc/theme_reposatry.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
+import 'package:rent_a_room/themes/app_theme.dart';
 
-import '../app_theme.dart';
-import '../themes/theme.dart';
+
 
 class App extends StatelessWidget {
   const App({required this.themeRepository, super.key});
