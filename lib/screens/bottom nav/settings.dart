@@ -20,7 +20,6 @@ class _state extends State<settings> {
   Widget build(BuildContext context) {
     const TextStyle mystyle = TextStyle(
         fontSize: 16,
-        color: Color(0xff303147),
         fontWeight: FontWeight.w500,
         fontFamily: 'Gilroy');
     return Scaffold(
@@ -33,7 +32,6 @@ class _state extends State<settings> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Colors.black,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),

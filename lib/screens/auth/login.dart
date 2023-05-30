@@ -181,11 +181,11 @@ class LoginPage extends StatelessWidget {
                     onPressed: () {
 
 
-                      Navigator.pushNamed(context, Routes.bottomBarRoute);
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => BottomNavBar()),
-                      // );
+                      //Navigator.pushNamed(context, Routes.bottomBarRoute);
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => BottomNavBar()),
+                      );
                     },
                   ),
                 ),

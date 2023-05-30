@@ -74,7 +74,6 @@ class SavedPageState extends State<SavedPage> {
                         TextStyle(color: Color(0xff878787), fontSize: 15),
                     suffixIcon: Icon(
                       Icons.search_rounded,
-                      color: Color(0xff303147),
                     ),
                     enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),

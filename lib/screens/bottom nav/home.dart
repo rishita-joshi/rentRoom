@@ -5,8 +5,8 @@ import 'package:rent_a_room/config/contents.dart';
 import 'package:rent_a_room/config/font_asset.dart';
 import 'package:rent_a_room/config/routes.dart';
 import 'package:rent_a_room/screens/details.dart';
+import 'package:rent_a_room/themes/ColorPalette.dart';
 import '../../bloc/theme_cubit.dart';
-import '../../themes/ColorPalette.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -80,6 +80,8 @@ class _HomePageState extends State<HomePage> {
                         size: 16,
                       ),
                       DropdownButton(
+                        dropdownColor: Theme.of(context).colorScheme.error,
+                     //   style: TextStyle(color: ),
                         value: _selectedLocation,
                         items: _locations.map((location) {
                           return DropdownMenuItem(
@@ -124,52 +126,50 @@ class _HomePageState extends State<HomePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 16),
-            Container(
-              child: TextField(
-                decoration: InputDecoration(
-                    prefixIcon: ImageIcon(
-                      AssetImage("assets/images/Splash/search.png"),
-                      color: ColorPalette.blackColor,
-                      size: 20,
-                    ),
-                    hintText: 'Search',
-                    border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8),
-                    ),
-                    suffixIcon: IconButton(
-                      onPressed: () {
-
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) => Contents()),
-                        );
-                        // Navigator.push(
-                        //   context,
-                        //   MaterialPageRoute(builder: (context) => FilterPage()),
-                        // );
-                      },
-                      icon: Container(
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(8),
-                            color: ColorPalette.blackColor),
-                        child: ImageIcon(
-                          AssetImage("assets/images/Splash/filter.png"),
-                          color: Colors.white,
-                          size: 28,
-                        ),
+            TextField(
+              decoration: InputDecoration(
+                  prefixIcon: ImageIcon(
+                    AssetImage("assets/images/Splash/search.png"),
+                    color: Theme.of(context).colorScheme.background,
+                    size: 20,
+                  ),
+                  hintText: 'Search',
+                  border: OutlineInputBorder(
+                    borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary ),
+                    borderRadius: BorderRadius.circular(8),
+                  ),
+                  suffixIcon: IconButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => Contents()),
+                      );
+                      // Navigator.push(
+                      //   context,
+                      //   MaterialPageRoute(builder: (context) => FilterPage()),
+                      // );
+                    },
+                    icon: Container(
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(8),
+color: Theme.of(context).colorScheme.background,                            
+                          ),
+                      child: ImageIcon(
+                        AssetImage("assets/images/Splash/filter.png"),
+                        color: Colors.white,
+                        size: 28,
                       ),
-                    )),
-              ),
+                    ),
+                  )),
             ),
             Container(
-              height: 130,
-              // width: MediaQuery.of(context).size.width * 2,
+              height: MediaQuery.of(context).size.height*0.2,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(9)),
               child: PageView(
                 controller: _pageController,
                 scrollDirection: Axis.horizontal,
                 children: List.generate(
-                  1000,
+                  10,
                   (index) => Container(
                     margin: EdgeInsets.symmetric(horizontal: 8),
                     child: Image.asset(
@@ -185,7 +185,6 @@ class _HomePageState extends State<HomePage> {
                 },
               ),
             ),
-            SizedBox(height: 16),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(_offers.length, (index) {
@@ -202,7 +201,7 @@ class _HomePageState extends State<HomePage> {
                 );
               }),
             ),
-            SizedBox(height: 16),
+            SizedBox(height: 10),
             Text(
               'Nearby Your Location',
              style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary, fontSize: 16 ),
@@ -213,7 +212,7 @@ class _HomePageState extends State<HomePage> {
                 itemCount: _adData.length, // replace with actual card count
                 itemBuilder: (BuildContext context, int index) {
                   return Padding(
-                    padding: EdgeInsets.all(16),
+                    padding: EdgeInsets.all(8),
                     child: _buildAdCard(_adData[index]),
                   );
                 },
@@ -226,63 +225,77 @@ class _HomePageState extends State<HomePage> {
   }
 
   Widget _buildAdCard(Map<String, dynamic> adData) {
-    return Container(
-      height: MediaQuery.of(context).size.height*0.35,
-      width: MediaQuery.of(context).size.width*0.2,
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        color: Theme.of(context).scaffoldBackgroundColor,
-        boxShadow: [
-          BoxShadow(
-           color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
+    return Card(
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           InkWell(
             onTap: () {
-
-              Navigator.pushNamed(context, Routes.pageDetailsRoute);
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => details()),
-              );
+            // Navigator.pushNamed(context, Routes.pageDetailsRoute);
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(builder: (context) => details()),
+              // );
             },
-            child: Container(
-              height: 209,
-              width: 330,
+            child: ClipRRect(
+              borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0) , topRight: Radius.circular(10.0) ),
               child: Image.asset(
                 'assets/images/Splash/Card.png',
-                fit: BoxFit.cover,
+                fit: BoxFit.fitWidth,
+                height: MediaQuery.of(context).size.height*0.2,
+                width: MediaQuery.of(context).size.width*0.9,
               ),
             ),
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Text(
-                adData['name'],
-                        style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary , fontSize: 14),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: SizedBox(
+              height: 20,
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    adData['name'],
+                            style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary , fontSize: 18),
+                  ),
+                  IconButton(icon: Icon(Icons.favorite_border), onPressed: () {  } ,),
+                ],
               ),
-              IconButton(icon: Icon(Icons.favorite_border), onPressed: () {  },),
-            ],
+            ),
           ),
-          Text(
-            adData['location'],
-            style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.primary , fontSize: 12),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              adData['location'],
+              style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.secondary , fontSize: 16),
+            ),
           ),
-          Text(
-            adData['price'],
-              style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary, fontSize: 12),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              adData['price'],
+                style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary, fontSize: 16),
+            ),
           ), 
         ],
       ),
     );
   }
 }
+
+    // Container(
+    //   height: MediaQuery.of(context).size.height*0.35,
+    //   width: MediaQuery.of(context).size.width*0.2,
+    //   decoration: BoxDecoration(
+    //     borderRadius: BorderRadius.circular(10),
+    //     color: Theme.of(context).scaffoldBackgroundColor,
+    //     boxShadow: [
+    //       BoxShadow(
+    //        color: Colors.grey.withOpacity(0.5),
+    //         spreadRadius: 1,
+    //         blurRadius: 5,
+    //         offset: Offset(0, 3),
+    //       ),
+    //     ],
+    //   ),
