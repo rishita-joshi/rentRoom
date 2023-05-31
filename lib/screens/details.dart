@@ -113,7 +113,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                             Text(
                               'Rick Richard',
                               style: TextStyle(
-                                  //color: ColorPalette.blackColor,
+                                  // ,
                                   fontSize: 15,
                                   fontWeight: FontWeight.w600),
                             ),
@@ -122,7 +122,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                               'Student | 25 | Searching for affordable single room flat near college in East London.',
                               style:
                                   TextStyle(fontSize: 11,
-                                   //color: ColorPalette.blackColor
+                                   // 
                                    ),
                             ),
                             Spacer(),
@@ -167,7 +167,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              //color: ColorPalette.blackColor
+                              // 
                               ),
                         ),
                         SizedBox(height: 20),
@@ -186,7 +186,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                              ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -204,7 +204,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -222,7 +222,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -240,7 +240,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -258,7 +258,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -276,7 +276,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -299,7 +299,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -317,7 +317,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -335,7 +335,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -353,7 +353,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -371,7 +371,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -389,7 +389,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -407,7 +407,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -419,7 +419,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: ColorPalette.blackColor),
+                       ),
                 ),
                 SizedBox(
                   height: 20,
@@ -447,7 +447,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -465,7 +465,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -483,7 +483,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -506,7 +506,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               // fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -524,7 +524,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -542,7 +542,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -554,7 +554,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                   style: TextStyle(
                       fontSize: 15,
                       fontWeight: FontWeight.w600,
-                      color: ColorPalette.blackColor),
+                       ),
                 ),
                 SizedBox(
                   height: 20,
@@ -719,7 +719,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           style: TextStyle(
                               fontSize: 12,
                               fontWeight: FontWeight.w600,
-                              color: ColorPalette.blackColor),
+                               ),
                         ),
                       ),
                     )
@@ -738,7 +738,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                         child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: ColorPalette.blackColor,
+                              backgroundColor: ColorPalette.darkGrayColor ,
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(10), // <-- Radius
@@ -764,7 +764,8 @@ color: Theme.of(context).iconTheme.color,                  ),
                           AssetImage("assets/images/Splash/menu.png"),
                         ),
                         onPressed: () {},
-                        color: ColorPalette.blackColor,
+                                                     //  backgroundColor: ColorPalette.darkGrayColor ,
+
                       ),
                     ],
                   ),

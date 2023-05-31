@@ -10,7 +10,9 @@ abstract class AppTheme {
      secondary: ColorPalette.textColorLightGray ,
       onSecondary: ColorPalette.textColorGray,
        error: ColorPalette.redColor, onError: ColorPalette.redColor,
-      background: ColorPalette.darkGrayColor, onBackground: ColorPalette.textColorGray, surface: ColorPalette.darkGrayColor, onSurface:  ColorPalette.darkGrayColor),
+      background: ColorPalette.darkGrayColor, onBackground: ColorPalette.textColorGray, 
+      surface: ColorPalette.containerColor,
+       onSurface:  ColorPalette.darkGrayColor),
         scaffoldBackgroundColor: ColorPalette.whiteColor,
 
 appBarTheme: AppBarTheme(backgroundColor: ColorPalette.whiteColor ,
@@ -26,11 +28,12 @@ shape: RoundedRectangleBorder(
 
 
 buttonTheme: ButtonThemeData(buttonColor: ColorPalette.darkGrayColor , 
-shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(10.0)),),
+shape: RoundedRectangleBorder( borderRadius: BorderRadius.circular(15.0)),),
        elevatedButtonTheme: ElevatedButtonThemeData(style: ButtonStyle(
-elevation: MaterialStatePropertyAll(10.0),
+elevation: MaterialStatePropertyAll(7.0),
 backgroundColor:MaterialStatePropertyAll(ColorPalette.darkGrayColor
 ),
+
 minimumSize: MaterialStateProperty.all(Size(170.0, 50.0)),
        )),
 dropdownMenuTheme: DropdownMenuThemeData(textStyle: TextStyle(color: ColorPalette.darkGrayColor ,)),
@@ -39,14 +42,10 @@ dropdownMenuTheme: DropdownMenuThemeData(textStyle: TextStyle(color: ColorPalett
        
        );
 
-      
-
-  static ThemeData get darkTheme => ThemeData(
+ static ThemeData get darkTheme => ThemeData(
         scaffoldBackgroundColor: ColorPalette.darkGrayColor,
-       
         appBarTheme: AppBarTheme(backgroundColor: ColorPalette.darkGrayColor ,
         iconTheme: IconThemeData(size: 18.0 , color: ColorPalette.whiteColor),
-
 ),
 
 colorScheme: ColorScheme(brightness: Brightness.dark,

@@ -34,7 +34,7 @@ class _FilterPageState extends State<FilterPage> {
             title: Text(
               'Filters',
               style: TextStyle(
-                  //color: Colors.black,
+                  color:  Theme.of(context).colorScheme.primary,
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Poppins'),
@@ -156,7 +156,9 @@ class _FilterPageState extends State<FilterPage> {
             ),
             Spacer(),
 
-            ElevatedButton(onPressed: (){}, child: Text("data")),
+            Center(child: SizedBox(
+              width: MediaQuery.of(context).size.width*0.5,
+              child: ElevatedButton(onPressed: (){}, child: Text("data")))),
             // Center(
             //   child: InkWell(
             //     onTap: () {},

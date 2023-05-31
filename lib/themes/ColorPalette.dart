@@ -8,6 +8,8 @@ class ColorPalette {
   static const Color lightBlueColor = Color(0xff44C1F0);
   static const Color redColor = Colors.red;
   static const Color textColorLightGray = Color(0xff878787);
+  static const Color containerColor = Color(0xffF6F6F6);
+
 
 
 }

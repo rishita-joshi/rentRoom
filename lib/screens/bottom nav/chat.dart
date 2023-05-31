@@ -28,7 +28,7 @@ IconButton(onPressed: (){}, icon: Icon(Icons.edit_square , color: ColorPalette.d
             title: Text(
               'Chat',
               style: TextStyle(
-                 // color: ColorPalette.blackColor,
+                 color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Roboto',
                   fontSize: 20),
@@ -72,7 +72,7 @@ return
           shape: BoxShape.circle,
               ),
               child: Center(
-                child: Text("1" ,              style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.onPrimary , fontSize: 16 , fontWeight: FontAsset.light),
+                child: Text("1" ,           style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.onPrimary , fontSize: 16 , fontWeight: FontAsset.light),
                 ),
               ),
             ),
@@ -81,10 +81,10 @@ return
                 ),
               ),
               subtitle: Text("Hii How Are You ? ",
-                  style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.onSecondary , fontSize: 16 , fontWeight: FontAsset.light),
+                  style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.secondary , fontSize: 16 , fontWeight: FontAsset.light),
                       ),
               trailing: Text(
-              "29 March" ,  style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.onSecondary , fontSize: 14),),
+              "29 March" ,  style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.secondary , fontSize: 14),),
               ),
       );
         }
