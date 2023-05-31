@@ -17,11 +17,8 @@ class welcome extends StatelessWidget {
           actions: [
             InkWell(
               onTap: () {
-
-
-
-                Navigator.of(context).pushReplacement(
-            MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+                Navigator.of(context).pushReplacement(MaterialPageRoute(
+                    builder: (BuildContext context) => LoginPage()));
                 // Navigator.push(
                 //   context,
                 //   MaterialPageRoute(builder: (context) => LoginPage()),

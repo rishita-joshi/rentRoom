@@ -40,7 +40,7 @@ class _detailsState extends State<details> {
         child: Padding(
           padding: const EdgeInsets.only(top: 10),
           child: AppBar(
-          //  backgroundColor: Colors.white,
+            //  backgroundColor: Colors.white,
             elevation: 0,
             leading: Padding(
               padding: const EdgeInsets.only(left: 25.0),
@@ -48,7 +48,6 @@ class _detailsState extends State<details> {
                 icon: Icon(
                   Icons.arrow_back,
                   color: Theme.of(context).iconTheme.color,
-                  
                 ),
                 onPressed: () => Navigator.of(context).pop(),
               ),
@@ -60,12 +59,13 @@ class _detailsState extends State<details> {
                 controller: _searchController,
                 style: const TextStyle(color: Color(0xff878787)),
                 cursorColor: Color(0xff878787),
-                decoration:  InputDecoration(
+                decoration: InputDecoration(
                   hintText: 'Advert',
                   hintStyle: TextStyle(color: Color(0xff878787)),
                   suffixIcon: Icon(
                     Icons.search_rounded,
-color: Theme.of(context).iconTheme.color,                  ),
+                    color: Theme.of(context).iconTheme.color,
+                  ),
                   enabledBorder: const OutlineInputBorder(
                       borderRadius: BorderRadius.all(Radius.circular(5)),
                       borderSide:
@@ -83,7 +83,7 @@ color: Theme.of(context).iconTheme.color,                  ),
         child: Padding(
           padding: const EdgeInsets.all(20.0),
           child: Container(
-           // color: Colors.white,
+            // color: Colors.white,
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -120,15 +120,14 @@ color: Theme.of(context).iconTheme.color,                  ),
                             Spacer(),
                             Text(
                               'Student | 25 | Searching for affordable single room flat near college in East London.',
-                              style:
-                                  TextStyle(fontSize: 11,
-                                   // 
-                                   ),
+                              style: TextStyle(
+                                fontSize: 11,
+                                //
+                              ),
                             ),
                             Spacer(),
                             Spacer(),
                             Spacer(),
-                          
                             Text(
                               'Know more',
                               style: TextStyle(
@@ -165,10 +164,10 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '£650 /month',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              // 
-                              ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                            //
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -184,9 +183,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '1 Dec',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                              ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -202,9 +201,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Kingston',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -220,9 +219,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Kingston',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -238,9 +237,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '23-28 yrs',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -256,9 +255,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Vegetarian Diet',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -274,9 +273,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Available',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -297,9 +296,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Dont mind',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -315,9 +314,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Double Room',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -333,9 +332,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Dont mind',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -351,9 +350,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Shared',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -369,9 +368,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '1000 sq.ft.',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -387,9 +386,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Shared',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -405,9 +404,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '4-6 weeks',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -417,9 +416,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                 Text(
                   'Preferred',
                   style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                       ),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -445,9 +444,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Single Room',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -463,9 +462,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Male',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -481,9 +480,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Student',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -504,9 +503,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Dog Friendly',
                           style: TextStyle(
-                              fontSize: 12,
-                              // fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            // fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -522,9 +521,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           'Male',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                         Text(
@@ -540,9 +539,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         Text(
                           '',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                         SizedBox(height: 20),
                       ],
@@ -552,9 +551,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                 Text(
                   'Features Amenities',
                   style: TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.w600,
-                       ),
+                    fontSize: 15,
+                    fontWeight: FontWeight.w600,
+                  ),
                 ),
                 SizedBox(
                   height: 20,
@@ -717,9 +716,9 @@ color: Theme.of(context).iconTheme.color,                  ),
                         child: Text(
                           'Report',
                           style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.w600,
-                               ),
+                            fontSize: 12,
+                            fontWeight: FontWeight.w600,
+                          ),
                         ),
                       ),
                     )
@@ -738,7 +737,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                         child: ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              backgroundColor: ColorPalette.darkGrayColor ,
+                              backgroundColor: ColorPalette.darkGrayColor,
                               shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.circular(10), // <-- Radius
@@ -750,7 +749,6 @@ color: Theme.of(context).iconTheme.color,                  ),
                                   fontSize: 18, fontWeight: FontWeight.w600),
                             )),
                       ),
-                      
                       IconButton(
                         icon: ImageIcon(
                           AssetImage("assets/images/Splash/like.png"),
@@ -764,8 +762,7 @@ color: Theme.of(context).iconTheme.color,                  ),
                           AssetImage("assets/images/Splash/menu.png"),
                         ),
                         onPressed: () {},
-                                                     //  backgroundColor: ColorPalette.darkGrayColor ,
-
+                        //  backgroundColor: ColorPalette.darkGrayColor ,
                       ),
                     ],
                   ),

@@ -52,9 +52,7 @@ class profile extends StatelessWidget {
                 alignment: Alignment.center,
                 height: 150,
                 width: double.infinity,
-                decoration: BoxDecoration(
-
-                ),
+                decoration: BoxDecoration(),
                 child: CircleAvatar(
                   radius: 50,
                   backgroundImage: AssetImage('assets/images/Splash/dp.png'),
@@ -62,7 +60,9 @@ class profile extends StatelessWidget {
               ),
               SizedBox(height: 5),
               Container(
-                  decoration: Theme.of(context).brightness == Brightness.dark ? darkBoxDecoration : lightBoxDecoration, 
+                  decoration: Theme.of(context).brightness == Brightness.dark
+                      ? darkBoxDecoration
+                      : lightBoxDecoration,
                   padding: EdgeInsets.all(20),
                   margin: EdgeInsets.all(10),
                   child: Row(
@@ -73,9 +73,8 @@ class profile extends StatelessWidget {
                           Text(
                             'Name',
                             style: TextStyle(
-                              fontSize: 14,
-                              color: Theme.of(context).colorScheme.primary
-                            ),
+                                fontSize: 14,
+                                color: Theme.of(context).colorScheme.primary),
                           ),
                           SizedBox(height: 21),
                           Text(
@@ -96,25 +95,25 @@ class profile extends StatelessWidget {
                           Text(
                             'John Doe',
                             style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                  ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                           SizedBox(height: 21),
                           Text(
                             '+1 123-456-7890',
                             style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                  ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                           SizedBox(height: 21),
                           Text(
                             'johndoe@example.com',
                             style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w600,
-                                  ),
+                              fontSize: 14,
+                              fontWeight: FontWeight.w600,
+                            ),
                           ),
                         ],
                       ),
@@ -160,9 +159,9 @@ class profile extends StatelessWidget {
                                         Text(
                                           advert['name']!,
                                           style: TextStyle(
-                                              fontSize: 14,
-                                              fontWeight: FontWeight.w600,
-                                                ),
+                                            fontSize: 14,
+                                            fontWeight: FontWeight.w600,
+                                          ),
                                         ),
                                         SizedBox(height: 8),
                                         Text(

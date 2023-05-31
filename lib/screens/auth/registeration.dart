@@ -6,7 +6,6 @@ import 'package:rent_a_room/config/font_asset.dart';
 
 import '../../themes/ColorPalette.dart';
 
-
 class RegisterPage extends StatefulWidget {
   @override
   _RegisterPageState createState() => _RegisterPageState();
@@ -36,8 +35,9 @@ class _RegisterPageState extends State<RegisterPage> {
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
-              'Register',                    style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-
+              'Register',
+              style: FontStyles.textStyleRegular(
+                  color: Theme.of(context).colorScheme.primary),
             ),
             centerTitle: true,
           ),
@@ -51,8 +51,8 @@ class _RegisterPageState extends State<RegisterPage> {
             children: [
               Text(
                 'Name',
-                                               style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               SizedBox(
@@ -70,8 +70,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Gender',
-                                                              style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               Row(
                 // innerDistance: -0.1,
@@ -85,8 +85,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Male',
-                                                                      style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 0,
                       groupValue: _selectedGenderIndex,
@@ -106,8 +106,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Female',
-                                                                       style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 1,
                       groupValue: _selectedGenderIndex,
@@ -127,8 +127,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Non-binary',
-                                                                      style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 2,
                       groupValue: _selectedGenderIndex,
@@ -144,8 +144,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'What are you looking for?',
-                                                             style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               ColumnSuper(
@@ -160,8 +160,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     activeColor: Color(0xff878787),
                     title: Text(
                       'Rent my place',
-                                                                   style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
                     ),
                     value: 0,
                     groupValue: _selectedWhatLookingIndex,
@@ -176,9 +176,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     visualDensity: const VisualDensity(horizontal: -4.0),
                     dense: true,
                     activeColor: Color(0xff878787),
-                    title: Text('Find roommate',
-                                                                       style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        ),
+                    title: Text(
+                      'Find roommate',
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                     value: 1,
                     groupValue: _selectedWhatLookingIndex,
                     onChanged: (val) {
@@ -192,11 +194,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     visualDensity: const VisualDensity(horizontal: -4.0),
                     dense: true,
                     activeColor: Color(0xff878787),
-                    title: Text('Rent a place',
-                                                                       style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
-                            
-                            ),
+                    title: Text(
+                      'Rent a place',
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                     value: 2,
                     groupValue: _selectedWhatLookingIndex,
                     onChanged: (val) {
@@ -210,8 +212,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Location',
-                                                             style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               TextField(
@@ -226,8 +228,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Description',
-                                                              style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               TextField(
@@ -243,8 +245,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Media',
-                                                               style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               Container(
@@ -269,8 +271,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Amenities',
-                                                               style: FontStyles.  textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               SizedBox(height: 6.0),
               Wrap(
@@ -299,8 +301,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   child: Text(
                     'Add',
-style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary),
-        
+                    style: FontStyles.textStyleRegular(
+                        color: Theme.of(context).colorScheme.primary),
                   ),
                 ),
               ),

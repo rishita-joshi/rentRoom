@@ -50,6 +50,14 @@ dependencies:
   flutter_bloc: 
   shared_preferences: 
   equatable:
+  flutter_paypal:
+  http_auth:
+  http:
+  webview_flutter:
+  webview_flutter_android: ^3.7.0
+  webview_flutter_wkwebview: ^3.4.3
+  bottom_bar_with_sheet:
+
   
 dev_dependencies:
   flutter_test:

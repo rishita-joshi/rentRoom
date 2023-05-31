@@ -8,7 +8,6 @@ import 'package:rent_a_room/screens/bottom%20nav/persisentnav.dart';
 
 import '../../themes/ColorPalette.dart';
 
-
 class LoginPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -42,23 +41,22 @@ class LoginPage extends StatelessWidget {
                       child: SvgPicture.asset("assets/images/facebook.svg"),
                       padding: EdgeInsets.all(15.0),
                       shape: CircleBorder(),
-                      onPressed: () async {
-                      },
-                       // try {
-                        //   final LoginResult result =
-                        //       await FacebookAuth.instance.login();
+                      onPressed: () async {},
+                      // try {
+                      //   final LoginResult result =
+                      //       await FacebookAuth.instance.login();
 
-                        //   if (result.status == LoginStatus.success) {
-                        //     final AccessToken accessToken = result.accessToken!;
-                        //     // Use the accessToken to sign-in or get user info
-                        //     print('Facebook login successful!');
-                        //   } else {
-                        //     print(result.status);
-                        //   }
-                        // } catch (e) {
-                        //   print(e);
-                        // }
-                     // },
+                      //   if (result.status == LoginStatus.success) {
+                      //     final AccessToken accessToken = result.accessToken!;
+                      //     // Use the accessToken to sign-in or get user info
+                      //     print('Facebook login successful!');
+                      //   } else {
+                      //     print(result.status);
+                      //   }
+                      // } catch (e) {
+                      //   print(e);
+                      // }
+                      // },
                     ),
                     SizedBox(height: 16.0),
                     RawMaterialButton(
@@ -179,8 +177,6 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.all(15.0),
                     // shape: RoundedRectangleBorder(),
                     onPressed: () {
-
-
                       //Navigator.pushNamed(context, Routes.bottomBarRoute);
                       Navigator.push(
                         context,

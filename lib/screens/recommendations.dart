@@ -63,8 +63,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                 cursorColor: Color(0xff878787),
                 decoration: const InputDecoration(
                   hintText: 'Recommendation',
-                  hintStyle:
-                      TextStyle(color: Color(0xff878787), fontSize: 15),
+                  hintStyle: TextStyle(color: Color(0xff878787), fontSize: 15),
                   suffixIcon: Icon(
                     Icons.search_rounded,
                   ),
@@ -85,8 +84,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
               Padding(
                 padding: const EdgeInsets.only(right: 10.0),
                 child: Container(
-                                  decoration: Theme.of(context).brightness == Brightness.dark ? darkBoxDecoration : lightBoxDecoration, 
-
+                  decoration: Theme.of(context).brightness == Brightness.dark
+                      ? darkBoxDecoration
+                      : lightBoxDecoration,
                   height: 29,
                   width: 74,
                   child: Center(
@@ -95,9 +95,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       child: Text(
                         "Filters",
                         style: TextStyle(
-                            fontFamily: 'Inter',
-                            fontSize: 15,
-                             ),
+                          fontFamily: 'Inter',
+                          fontSize: 15,
+                        ),
                       ),
                     ),
                   ),
@@ -121,7 +121,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
 
   Widget _buildCard(Map<String, dynamic> cardData) {
     return Container(
-                        decoration: Theme.of(context).brightness == Brightness.dark ? darkBoxDecoration : lightBoxDecoration, 
+      decoration: Theme.of(context).brightness == Brightness.dark
+          ? darkBoxDecoration
+          : lightBoxDecoration,
 
       // decoration: BoxDecoration(
       //   borderRadius: BorderRadius.circular(10),
@@ -168,7 +170,6 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                         cardData['name'],
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                           
                           fontSize: 16,
                         ),
                       ),
@@ -228,10 +229,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         cardData['budget'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                             
-                            ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
@@ -248,9 +248,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         cardData['date'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                             ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
@@ -267,9 +267,9 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         cardData['location'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                             ),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                        ),
                       ),
                     ],
                   ),
