@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../themes/myColors.dart';
+import '../themes/ColorPalette.dart';
 
 class ContactPage extends StatefulWidget {
   @override

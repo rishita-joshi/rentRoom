@@ -1,7 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:rent_a_room/themes/myColors.dart';
+import 'package:rent_a_room/themes/ColorPalette.dart';
 
 class FontAsset {
   static const String poppins = "Poppins";

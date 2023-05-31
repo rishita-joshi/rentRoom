@@ -4,9 +4,9 @@ import 'package:rent_a_room/screens/bottom%20nav/chat.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
 import 'package:rent_a_room/screens/bottom%20nav/settings.dart';
-import 'package:rent_a_room/screens/registeration.dart';
 
-import '../../themes/myColors.dart';
+import '../../themes/ColorPalette.dart';
+import '../auth/registeration.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({Key? key}) : super(key: key);
@@ -31,30 +31,26 @@ class BottomNavBar extends StatelessWidget {
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/homeBtm.png"),
-              // color: ColorPalette.blackColor,
             ),
             iconSize: 18,
-            // title: ("Home"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: ColorPalette.blackColor),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/settingsBtm.png"),
-              // color: ColorPalette.blackColor,
             ),
             iconSize: 18,
 
             // title: ("Explore"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: ColorPalette.blackColor),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/addBtm.png"),
-              // color: ColorPalette.blackColor,
             ),
             iconSize: 18,
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: ColorPalette.blackColor),
+            inactiveColorPrimary:  Theme.of(context).colorScheme.primary),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/chatBtm.png"),
@@ -64,7 +60,8 @@ class BottomNavBar extends StatelessWidget {
 
             // title: ("Inbox"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: ColorPalette.blackColor),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary
+            ),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/profileBtm.png"),
@@ -74,7 +71,8 @@ class BottomNavBar extends StatelessWidget {
 
             // title: ("Shop"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: ColorPalette.blackColor),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary
+            ),
       ];
     }
 
@@ -85,7 +83,7 @@ class BottomNavBar extends StatelessWidget {
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Colors.white, // Default is Colors.white.
+      backgroundColor: Theme.of(context).scaffoldBackgroundColor, // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
       resizeToAvoidBottomInset:
           true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.

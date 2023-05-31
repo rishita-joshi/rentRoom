@@ -1,8 +1,7 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
-import 'package:rent_a_room/screens/login.dart';
-
-import '../themes/myColors.dart';
+import 'package:rent_a_room/screens/auth/login.dart';
+import '../themes/ColorPalette.dart';
 
 class welcome extends StatelessWidget {
   const welcome({super.key});
@@ -18,10 +17,15 @@ class welcome extends StatelessWidget {
           actions: [
             InkWell(
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => LoginPage()),
-                );
+
+
+
+                Navigator.of(context).pushReplacement(
+            MaterialPageRoute(builder: (BuildContext context) => LoginPage()));
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => LoginPage()),
+                // );
               },
               child: Padding(
                 padding: EdgeInsets.only(

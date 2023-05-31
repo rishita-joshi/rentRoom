@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../themes/myColors.dart';
+import '../themes/ColorPalette.dart';
 
 class RecommendationsPage extends StatefulWidget {
   @override
@@ -74,7 +74,6 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                         TextStyle(color: Color(0xff878787), fontSize: 15),
                     suffixIcon: Icon(
                       Icons.search_rounded,
-                      color: Color(0xff303147),
                     ),
                     enabledBorder: const OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10)),

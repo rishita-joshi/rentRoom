@@ -1,8 +1,11 @@
 import 'dart:async';
-import 'package:rent_a_room/themes/myColors.dart';
+import 'package:rent_a_room/routes.dart';
+import 'package:rent_a_room/themes/ColorPalette.dart';
 import 'package:flutter/material.dart';
 
 import 'package:rent_a_room/screens/welcome.dart';
+
+import '../config/routes.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -34,10 +37,13 @@ class Splash extends State<SplashScreen> {
                 child: Image.asset('assets/images/Splash/logo.png'),
               ),
               onTap: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => welcome()),
-                );
+
+Navigator.pushNamedAndRemoveUntil(context, Routes.welComeRoute, (route) => false);
+
+                // Navigator.push(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => welcome()),
+                // );
               },
             ),
             Spacer(),
@@ -59,13 +65,7 @@ class Splash extends State<SplashScreen> {
                   style: TextStyle(
                       color: Colors.white, fontSize: 15, fontFamily: 'Gilroy'),
                 ),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                Spacer(),
-                Spacer(),
+               
               ],
             ),
             // Spacer(),
