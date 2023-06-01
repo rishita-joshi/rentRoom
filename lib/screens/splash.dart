@@ -37,8 +37,8 @@ class Splash extends State<SplashScreen> {
                 child: Image.asset('assets/images/Splash/logo.png'),
               ),
               onTap: () {
-
-Navigator.pushNamedAndRemoveUntil(context, Routes.welComeRoute, (route) => false);
+                Navigator.pushNamedAndRemoveUntil(
+                    context, Routes.welComeRoute, (route) => false);
 
                 // Navigator.push(
                 //   context,
@@ -65,7 +65,6 @@ Navigator.pushNamedAndRemoveUntil(context, Routes.welComeRoute, (route) => false
                   style: TextStyle(
                       color: Colors.white, fontSize: 15, fontFamily: 'Gilroy'),
                 ),
-               
               ],
             ),
             // Spacer(),

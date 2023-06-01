@@ -64,13 +64,24 @@ class _HomePageState extends State<HomePage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  TextButton(onPressed: (){
-   context.read<ThemeCubit>().switchTheme();
-}, child: context.read<ThemeCubit>().state.themeMode == ThemeMode.light ? Text("light" , style: TextStyle(color: Colors.amber),) : Text("dark" ,style: TextStyle(color: Colors.amber),)),
+                  TextButton(
+                      onPressed: () {
+                        context.read<ThemeCubit>().switchTheme();
+                      },
+                      child: context.read<ThemeCubit>().state.themeMode ==
+                              ThemeMode.light
+                          ? Text(
+                              "light",
+                              style: TextStyle(color: Colors.amber),
+                            )
+                          : Text(
+                              "dark",
+                              style: TextStyle(color: Colors.amber),
+                            )),
                   Text(
                     'Current Location',
-                    style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary),
-                    
+                    style: FontStyles.textStyleBold(
+                        color: Theme.of(context).colorScheme.primary),
                   ),
                   Row(
                     children: [
@@ -81,14 +92,15 @@ class _HomePageState extends State<HomePage> {
                       ),
                       DropdownButton(
                         dropdownColor: Theme.of(context).colorScheme.error,
-                     //   style: TextStyle(color: ),
+                        //   style: TextStyle(color: ),
                         value: _selectedLocation,
                         items: _locations.map((location) {
                           return DropdownMenuItem(
                             value: location,
                             child: Text(
                               location,
-                            style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary),
+                              style: FontStyles.textStyleBold(
+                                  color: Theme.of(context).colorScheme.primary),
                             ),
                           );
                         }).toList(),
@@ -113,8 +125,8 @@ class _HomePageState extends State<HomePage> {
                 child: IconButton(
                   icon: Icon(Icons.notifications),
                   onPressed: () {},
-            color: Theme.of(context).iconTheme.color,        
-                       ),
+                  color: Theme.of(context).iconTheme.color,
+                ),
               ),
             ],
           ),
@@ -135,7 +147,8 @@ class _HomePageState extends State<HomePage> {
                   ),
                   hintText: 'Search',
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(color: Theme.of(context).colorScheme.onPrimary ),
+                    borderSide: BorderSide(
+                        color: Theme.of(context).colorScheme.onPrimary),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   suffixIcon: IconButton(
@@ -151,9 +164,9 @@ class _HomePageState extends State<HomePage> {
                     },
                     icon: Container(
                       decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(8),
-color: Theme.of(context).colorScheme.background,                            
-                          ),
+                        borderRadius: BorderRadius.circular(8),
+                        color: Theme.of(context).colorScheme.background,
+                      ),
                       child: ImageIcon(
                         AssetImage("assets/images/Splash/filter.png"),
                         color: Colors.white,
@@ -163,7 +176,7 @@ color: Theme.of(context).colorScheme.background,
                   )),
             ),
             Container(
-              height: MediaQuery.of(context).size.height*0.2,
+              height: MediaQuery.of(context).size.height * 0.2,
               decoration: BoxDecoration(borderRadius: BorderRadius.circular(9)),
               child: PageView(
                 controller: _pageController,
@@ -204,7 +217,8 @@ color: Theme.of(context).colorScheme.background,
             SizedBox(height: 10),
             Text(
               'Nearby Your Location',
-             style: FontStyles.textStyleBold(color: Theme.of(context).colorScheme.primary, fontSize: 16 ),
+              style: FontStyles.textStyleBold(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 16),
             ),
             SizedBox(height: 8),
             Expanded(
@@ -231,19 +245,21 @@ color: Theme.of(context).colorScheme.background,
         children: [
           InkWell(
             onTap: () {
-            // Navigator.pushNamed(context, Routes.pageDetailsRoute);
+              // Navigator.pushNamed(context, Routes.pageDetailsRoute);
               // Navigator.push(
               //   context,
               //   MaterialPageRoute(builder: (context) => details()),
               // );
             },
             child: ClipRRect(
-              borderRadius: BorderRadius.only(topLeft: Radius.circular(10.0) , topRight: Radius.circular(10.0) ),
+              borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(10.0),
+                  topRight: Radius.circular(10.0)),
               child: Image.asset(
                 'assets/images/Splash/Card.png',
                 fit: BoxFit.fitWidth,
-                height: MediaQuery.of(context).size.height*0.2,
-                width: MediaQuery.of(context).size.width*0.9,
+                height: MediaQuery.of(context).size.height * 0.2,
+                width: MediaQuery.of(context).size.width * 0.9,
               ),
             ),
           ),
@@ -257,9 +273,14 @@ color: Theme.of(context).colorScheme.background,
                 children: [
                   Text(
                     adData['name'],
-                            style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary , fontSize: 18),
+                    style: FontStyles.textStyleRegular(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 18),
                   ),
-                  IconButton(icon: Icon(Icons.favorite_border), onPressed: () {  } ,),
+                  IconButton(
+                    icon: Icon(Icons.favorite_border),
+                    onPressed: () {},
+                  ),
                 ],
               ),
             ),
@@ -268,16 +289,18 @@ color: Theme.of(context).colorScheme.background,
             padding: const EdgeInsets.all(8.0),
             child: Text(
               adData['location'],
-              style: FontStyles.textStyleSemiBold(color: Theme.of(context).colorScheme.secondary , fontSize: 16),
+              style: FontStyles.textStyleSemiBold(
+                  color: Theme.of(context).colorScheme.secondary, fontSize: 16),
             ),
           ),
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
               adData['price'],
-                style: FontStyles.textStyleRegular(color: Theme.of(context).colorScheme.primary, fontSize: 16),
+              style: FontStyles.textStyleRegular(
+                  color: Theme.of(context).colorScheme.primary, fontSize: 16),
             ),
-          ), 
+          ),
         ],
       ),
     );

@@ -27,14 +27,14 @@ class _FilterPageState extends State<FilterPage> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-               // color: Colors.black,
+                // color: Colors.black,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
               'Filters',
               style: TextStyle(
-                  //color: Colors.black,
+                  color: Theme.of(context).colorScheme.primary,
                   fontSize: 20,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Poppins'),
@@ -50,7 +50,7 @@ class _FilterPageState extends State<FilterPage> {
                 child: Text(
                   'Reset',
                   style: TextStyle(
-                     // color: Color(0xff878787),
+                      // color: Color(0xff878787),
                       fontSize: 14,
                       fontWeight: FontWeight.w600),
                 ),
@@ -61,7 +61,7 @@ class _FilterPageState extends State<FilterPage> {
         ),
       ),
       body: Container(
-      //  color: Colors.white,
+        //  color: Colors.white,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
@@ -156,7 +156,11 @@ class _FilterPageState extends State<FilterPage> {
             ),
             Spacer(),
 
-            ElevatedButton(onPressed: (){}, child: Text("data")),
+            Center(
+                child: SizedBox(
+                    width: MediaQuery.of(context).size.width * 0.5,
+                    child:
+                        ElevatedButton(onPressed: () {}, child: Text("data")))),
             // Center(
             //   child: InkWell(
             //     onTap: () {},
@@ -191,13 +195,14 @@ class _FilterPageState extends State<FilterPage> {
     return Container(
       alignment: Alignment.center,
       decoration: BoxDecoration(
-        // borderRadius: BorderRadius.circular(5),
-       // color: Colors.white,
-      ),
+          // borderRadius: BorderRadius.circular(5),
+          // color: Colors.white,
+          ),
       child: Text(
         label,
-        style: TextStyle(fontSize: 15, 
-    //    color: ColorPalette.blackColor
+        style: TextStyle(
+          fontSize: 15,
+          //    color: ColorPalette.blackColor
         ),
       ),
     );

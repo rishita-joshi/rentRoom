@@ -50,7 +50,7 @@ class BottomNavBar extends StatelessWidget {
             ),
             iconSize: 18,
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary:  Theme.of(context).colorScheme.primary),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/chatBtm.png"),
@@ -60,8 +60,7 @@ class BottomNavBar extends StatelessWidget {
 
             // title: ("Inbox"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: Theme.of(context).colorScheme.primary
-            ),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary),
         PersistentBottomNavBarItem(
             icon: ImageIcon(
               AssetImage("assets/images/Splash/profileBtm.png"),
@@ -71,8 +70,7 @@ class BottomNavBar extends StatelessWidget {
 
             // title: ("Shop"),
             activeColorPrimary: Color(0xff44C1F0),
-            inactiveColorPrimary: Theme.of(context).colorScheme.primary
-            ),
+            inactiveColorPrimary: Theme.of(context).colorScheme.primary),
       ];
     }
 
@@ -83,7 +81,8 @@ class BottomNavBar extends StatelessWidget {
       screens: _buildScreens(),
       items: _navBarsItems(),
       confineInSafeArea: true,
-      backgroundColor: Theme.of(context).scaffoldBackgroundColor, // Default is Colors.white.
+      backgroundColor:
+          Theme.of(context).scaffoldBackgroundColor, // Default is Colors.white.
       handleAndroidBackButtonPress: true, // Default is true.
       resizeToAvoidBottomInset:
           true, // This needs to be true if you want to move up the screen when keyboard appears. Default is true.

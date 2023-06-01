@@ -19,9 +19,7 @@ class _state extends State<settings> {
   @override
   Widget build(BuildContext context) {
     const TextStyle mystyle = TextStyle(
-        fontSize: 16,
-        fontWeight: FontWeight.w500,
-        fontFamily: 'Gilroy');
+        fontSize: 16, fontWeight: FontWeight.w500, fontFamily: 'Gilroy');
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: Size.fromHeight(60),
@@ -195,7 +193,8 @@ class _state extends State<settings> {
                                       activeTrackColor: ColorPalette.blackColor,
                                       activeColor: ColorPalette.blackColor,
                                       inactiveTrackColor: Color(0xff878787),
-                                      inactiveThumbColor: ColorPalette.blackColor,
+                                      inactiveThumbColor:
+                                          ColorPalette.blackColor,
                                     ),
                                   ),
                                 ),
@@ -228,7 +227,8 @@ class _state extends State<settings> {
                                       activeTrackColor: ColorPalette.blackColor,
                                       activeColor: ColorPalette.blackColor,
                                       inactiveTrackColor: Color(0xff878787),
-                                      inactiveThumbColor: ColorPalette.blackColor,
+                                      inactiveThumbColor:
+                                          ColorPalette.blackColor,
                                     ),
                                   ),
                                 ),
@@ -341,11 +341,8 @@ class _state extends State<settings> {
                                     size: 22,
                                   ),
                                   onPressed: () {
-
-
-                                    Navigator.pushNamed(context, Routes.loginRoute);
-                                 
-                                  
+                                    Navigator.pushNamed(
+                                        context, Routes.loginRoute);
                                   },
                                 ),
                               ],

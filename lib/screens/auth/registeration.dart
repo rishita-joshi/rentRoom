@@ -2,9 +2,9 @@ import 'dart:ui';
 
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:rent_a_room/config/font_asset.dart';
 
 import '../../themes/ColorPalette.dart';
-
 
 class RegisterPage extends StatefulWidget {
   @override
@@ -31,37 +31,30 @@ class _RegisterPageState extends State<RegisterPage> {
             leading: IconButton(
               icon: Icon(
                 Icons.arrow_back,
-                color: Colors.black,
               ),
               onPressed: () => Navigator.of(context).pop(),
             ),
             title: Text(
               'Register',
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.w500,
-                  fontFamily: 'Gilroy'),
+              style: FontStyles.textStyleRegular(
+                  color: Theme.of(context).colorScheme.primary),
             ),
             centerTitle: true,
           ),
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          padding: EdgeInsets.all(16.0),
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Text(
                 'Name',
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               SizedBox(
                 height: 40,
                 child: TextField(
@@ -77,11 +70,8 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Gender',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
               Row(
                 // innerDistance: -0.1,
@@ -95,10 +85,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Male',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Gilroy'),
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 0,
                       groupValue: _selectedGenderIndex,
@@ -118,10 +106,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Female',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Gilroy'),
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 1,
                       groupValue: _selectedGenderIndex,
@@ -141,11 +127,8 @@ class _RegisterPageState extends State<RegisterPage> {
                       activeColor: Color(0xff878787),
                       title: Text(
                         'Non-binary',
-                        style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Gilroy',
-                        ),
+                        style: FontStyles.textStyleRegular(
+                            color: Theme.of(context).colorScheme.primary),
                       ),
                       value: 2,
                       groupValue: _selectedGenderIndex,
@@ -161,13 +144,10 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'What are you looking for?',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               ColumnSuper(
                 innerDistance: -10,
                 children: [
@@ -180,10 +160,8 @@ class _RegisterPageState extends State<RegisterPage> {
                     activeColor: Color(0xff878787),
                     title: Text(
                       'Rent my place',
-                      style: TextStyle(
-                          fontSize: 14,
-                          fontWeight: FontWeight.w400,
-                          fontFamily: 'Gilroy'),
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
                     ),
                     value: 0,
                     groupValue: _selectedWhatLookingIndex,
@@ -198,11 +176,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     visualDensity: const VisualDensity(horizontal: -4.0),
                     dense: true,
                     activeColor: Color(0xff878787),
-                    title: Text('Find roommate',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Gilroy')),
+                    title: Text(
+                      'Find roommate',
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                     value: 1,
                     groupValue: _selectedWhatLookingIndex,
                     onChanged: (val) {
@@ -216,11 +194,11 @@ class _RegisterPageState extends State<RegisterPage> {
                     visualDensity: const VisualDensity(horizontal: -4.0),
                     dense: true,
                     activeColor: Color(0xff878787),
-                    title: Text('Rent a place',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w400,
-                            fontFamily: 'Gilroy')),
+                    title: Text(
+                      'Rent a place',
+                      style: FontStyles.textStyleRegular(
+                          color: Theme.of(context).colorScheme.primary),
+                    ),
                     value: 2,
                     groupValue: _selectedWhatLookingIndex,
                     onChanged: (val) {
@@ -234,13 +212,10 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Location',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               TextField(
                 controller: _locationController,
                 decoration: InputDecoration(
@@ -253,13 +228,10 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Description',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               TextField(
                 controller: _descriptionController,
                 maxLines: 4,
@@ -273,13 +245,10 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Media',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               Container(
                 height: 72.0,
                 // width: 100,
@@ -302,13 +271,10 @@ class _RegisterPageState extends State<RegisterPage> {
               SizedBox(height: 24.0),
               Text(
                 'Amenities',
-                style: TextStyle(
-                    fontWeight: FontWeight.w600,
-                    fontSize: 18,
-                    fontFamily: 'Gilroy',
-                    color: ColorPalette.blackColor),
+                style: FontStyles.textStyleRegular(
+                    color: Theme.of(context).colorScheme.primary),
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               Wrap(
                 alignment: WrapAlignment.spaceBetween,
                 // spacing: 5.0,
@@ -322,7 +288,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   _buildAmenityTile(5, 'AC'),
                 ],
               ),
-              SizedBox(height: 16.0),
+              SizedBox(height: 6.0),
               SizedBox(
                 height: 57,
                 child: ElevatedButton(
@@ -335,11 +301,8 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                   child: Text(
                     'Add',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Gilroy',
-                        fontSize: 20),
+                    style: FontStyles.textStyleRegular(
+                        color: Theme.of(context).colorScheme.primary),
                   ),
                 ),
               ),
