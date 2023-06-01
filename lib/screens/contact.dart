@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../themes/ColorPalette.dart';
+import '../utils/design_utils.dart';
 
 class ContactPage extends StatefulWidget {
   @override
@@ -10,6 +11,8 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   late String _selectedOption;
   TextEditingController _messageController = TextEditingController();
+  final nameController = TextEditingController();
+  final messageController = TextEditingController();
 
   @override
   void initState() {
@@ -26,19 +29,19 @@ class _ContactPageState extends State<ContactPage> {
           child: Padding(
             padding: const EdgeInsets.only(top: 25.0),
             child: AppBar(
-              backgroundColor: Colors.white,
+              // backgroundColor: Colors.white,
               elevation: 0.0,
               leading: IconButton(
                 icon: Icon(
                   Icons.arrow_back,
-                  color: Colors.black,
+                  color: Theme.of(context).iconTheme.color,
                 ),
                 onPressed: () => Navigator.of(context).pop(),
               ),
               title: Text(
                 'Contact',
                 style: TextStyle(
-                    color: ColorPalette.blackColor,
+                    color: Theme.of(context).colorScheme.primary,
                     fontWeight: FontWeight.w500,
                     fontFamily: 'Roboto',
                     fontSize: 20),
@@ -49,7 +52,6 @@ class _ContactPageState extends State<ContactPage> {
         ),
         body: SingleChildScrollView(
           child: Container(
-            color: Colors.white,
             height: MediaQuery.of(context).size.height * 0.9,
             width: MediaQuery.of(context).size.width,
             child: Padding(
@@ -63,18 +65,29 @@ class _ContactPageState extends State<ContactPage> {
                   Text(
                     'Name',
                     style: TextStyle(
-                      // fontWeight: FontWeight.bold,
+                      color: Theme.of(context).colorScheme.primary,
                       fontSize: 16.0,
                     ),
                   ),
                   SizedBox(height: 20.0),
-                  TextFormField(
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      hintText: 'Name',
-                    ),
+                  Container(
+                    height: 50,
+                    child: TextFormField(
+                        controller: nameController,
+                        cursorColor: ColorPalette.blackColor,
+                        style: TextStyle(color: ColorPalette.blackColor),
+                        decoration: getTextFiledDecRadius('Name', context)
+                        //     InputDecoration(
+                        //   border: OutlineInputBorder(
+                        //     borderRadius: BorderRadius.circular(10.0),
+                        //   ),
+                        //   hintText: 'Name',
+                        //   hintStyle: TextStyle(
+                        //     color: Theme.of(context).colorScheme.primary,
+                        //     fontSize: 16,
+                        //   ),
+                        // ),
+                        ),
                   ),
                   SizedBox(height: 20.0),
                   Text(
@@ -88,18 +101,28 @@ class _ContactPageState extends State<ContactPage> {
                   Container(
                     padding: EdgeInsets.symmetric(horizontal: 12.0),
                     decoration: BoxDecoration(
+                      color: Theme.of(context).brightness == Brightness.dark
+                          ? ColorPalette.whiteColor
+                          : ColorPalette.transparentColor,
                       borderRadius: BorderRadius.circular(10.0),
                       border: Border.all(color: Color(0XFFEBEBEB)),
                     ),
                     child: DropdownButtonHideUnderline(
                       child: DropdownButtonFormField<String>(
+                        dropdownColor: ColorPalette.whiteColor,
                         icon: ImageIcon(
                           AssetImage("assets/images/Splash/dropdown.png"),
                           size: 18,
+                          color: ColorPalette.darkGrayColor,
                         ),
                         decoration: InputDecoration(
                           enabledBorder: InputBorder.none,
                           disabledBorder: InputBorder.none,
+                          hintText: 'Select',
+                          hintStyle: TextStyle(
+                            color: ColorPalette.darkGrayColor,
+                            fontSize: 16.0,
+                          ),
                         ),
                         value: _selectedOption,
                         onChanged: (value) {
@@ -110,15 +133,33 @@ class _ContactPageState extends State<ContactPage> {
                         items: [
                           DropdownMenuItem(
                             value: 'Option 1',
-                            child: Text('Option 1'),
+                            child: Text(
+                              'Option 1',
+                              style: TextStyle(
+                                color: ColorPalette.darkGrayColor,
+                                fontSize: 16.0,
+                              ),
+                            ),
                           ),
                           DropdownMenuItem(
                             value: 'Option 2',
-                            child: Text('Option 2'),
+                            child: Text(
+                              'Option 2',
+                              style: TextStyle(
+                                color: ColorPalette.darkGrayColor,
+                                fontSize: 16.0,
+                              ),
+                            ),
                           ),
                           DropdownMenuItem(
                             value: 'Option 3',
-                            child: Text('Option 3'),
+                            child: Text(
+                              'Option 3',
+                              style: TextStyle(
+                                color: ColorPalette.darkGrayColor,
+                                fontSize: 16.0,
+                              ),
+                            ),
                           ),
                         ],
                       ),
@@ -128,24 +169,27 @@ class _ContactPageState extends State<ContactPage> {
                   Text(
                     'Message',
                     style: TextStyle(
-                      // fontWeight: FontWeight.bold,
+                      color: ColorPalette.darkGrayColor,
                       fontSize: 16.0,
                     ),
                   ),
                   SizedBox(height: 20.0),
                   TextFormField(
                     controller: _messageController,
+                    cursorColor: ColorPalette.blackColor,
+                    style: TextStyle(color: ColorPalette.blackColor),
+                    decoration: getTextFiledDecRadius('Enter Here', context),
                     maxLines: 5,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                        borderSide: BorderSide(
-                          color: Color(0xffEBEBEB),
-                        ),
-                      ),
-                      hintText: 'Enter Here',
-                      hintStyle: TextStyle(fontSize: 14),
-                    ),
+                    // decoration: InputDecoration(
+                    //   border: OutlineInputBorder(
+                    //     borderRadius: BorderRadius.circular(10.0),
+                    //     borderSide: BorderSide(
+                    //       color: Color(0xffEBEBEB),
+                    //     ),
+                    //   ),
+                    //   hintText: 'Enter Here',
+                    //   hintStyle: TextStyle(fontSize: 14),
+                    // ),
                   ),
                   SizedBox(
                     height: MediaQuery.of(context).size.height * 0.2,
@@ -155,18 +199,25 @@ class _ContactPageState extends State<ContactPage> {
                       width: MediaQuery.of(context).size.width * 0.9,
                       height: 57,
                       child: ElevatedButton(
-                        onPressed: () {},
-                        child: Text(
-                          'Send Message',
-                          style: TextStyle(fontSize: 18, fontFamily: 'Roboto'),
-                        ),
-                        style: ElevatedButton.styleFrom(
-                          backgroundColor: ColorPalette.blackColor,
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(10.0),
+                          onPressed: () {},
+                          child: Text(
+                            'Send Message',
+                            style: TextStyle(
+                                fontSize: 18,
+                                fontFamily: 'Roboto',
+                                color: ColorPalette.whiteColor),
                           ),
-                        ),
-                      ),
+                          style: Theme.of(context).brightness == Brightness.dark
+                              ? darkElevatedButtonTheme
+                              : lightElevatedButtonTheme
+
+                          //     style: ElevatedButton.styleFrom(
+                          //       backgroundColor: ColorPalette.whiteColor,
+                          //       shape: RoundedRectangleBorder(
+                          //         borderRadius: BorderRadius.circular(10.0),
+                          //       ),
+                          //     ),
+                          ),
                     ),
                   ),
                 ],

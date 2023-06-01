@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rent_a_room/utils/design_utils.dart';
 
-import '../../themes/ColorPalette.dart';
-
 class profile extends StatelessWidget {
   final List<Map<String, String>> adverts = [
     {
@@ -123,10 +121,9 @@ class profile extends StatelessWidget {
               Container(
                 margin: EdgeInsets.all(10),
                 padding: EdgeInsets.all(10),
-                decoration: BoxDecoration(
-                    color: Color(0xffF6F6F6),
-                    border: Border.all(color: Color(0xfff6f6f6)),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
+                decoration: Theme.of(context).brightness == Brightness.dark
+                    ? darkBoxDecoration
+                    : lightBoxDecoration,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -143,10 +140,6 @@ class profile extends StatelessWidget {
                         return Padding(
                           padding: const EdgeInsets.only(bottom: 18.0),
                           child: Card(
-                            shape: RoundedRectangleBorder(
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10)),
-                            ),
                             child: Row(
                               children: [
                                 Expanded(
@@ -179,9 +172,12 @@ class profile extends StatelessWidget {
                                 Container(
                                   width: 83,
                                   height: 68,
-                                  // padding: EdgeInsets.all(20),
                                   margin: EdgeInsets.all(10),
                                   decoration: BoxDecoration(
+                                    border: Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? darkBoxBorderDecoration
+                                        : lightBoxBorderDecoration,
                                     borderRadius:
                                         BorderRadius.all(Radius.circular(10)),
                                     image: DecorationImage(

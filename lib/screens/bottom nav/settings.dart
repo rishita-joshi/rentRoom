@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
 import 'package:rent_a_room/config/routes.dart';
-import 'package:rent_a_room/screens/auth/login.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
 import 'package:rent_a_room/screens/privacy.dart';
 
 import '../../themes/ColorPalette.dart';
+import '../../utils/design_utils.dart';
 
 class settings extends StatefulWidget {
   @override
@@ -36,7 +35,7 @@ class _state extends State<settings> {
             title: Text(
               'Settings',
               style: TextStyle(
-                  color: ColorPalette.blackColor,
+                  color: Theme.of(context).colorScheme.primary,
                   fontWeight: FontWeight.w500,
                   fontFamily: 'Roboto',
                   fontSize: 20),
@@ -52,14 +51,18 @@ class _state extends State<settings> {
             width: MediaQuery.of(context).size.width,
             height: MediaQuery.of(context).size.height,
             padding: EdgeInsets.fromLTRB(12, 20, 12, 0),
-            decoration: BoxDecoration(color: Colors.white),
+            decoration: BoxDecoration(
+              color: Theme.of(context).brightness == Brightness.dark
+                  ? ColorPalette.darkGrayColor
+                  : ColorPalette.whiteColor,
+            ),
             child: Column(
               children: [
                 Container(
                   padding: EdgeInsets.fromLTRB(20, 20, 10, 20),
-                  decoration: BoxDecoration(
-                      color: Color(0xffF6F6F6),
-                      borderRadius: BorderRadius.circular(10)),
+                  decoration: Theme.of(context).brightness == Brightness.dark
+                      ? darkBoxDecoration
+                      : lightBoxDecoration,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -89,7 +92,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {
@@ -113,7 +116,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {},
@@ -131,7 +134,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {},
@@ -149,9 +152,9 @@ class _state extends State<settings> {
                 ),
                 Container(
                   padding: EdgeInsets.fromLTRB(20, 20, 10, 20),
-                  decoration: BoxDecoration(
-                      color: Color(0xffF6F6F6),
-                      borderRadius: BorderRadius.circular(10)),
+                  decoration: Theme.of(context).brightness == Brightness.dark
+                      ? darkBoxDecoration
+                      : lightBoxDecoration,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -190,11 +193,13 @@ class _state extends State<settings> {
                                           print(isSwitchedNoti);
                                         });
                                       },
-                                      activeTrackColor: ColorPalette.blackColor,
-                                      activeColor: ColorPalette.blackColor,
+                                      activeTrackColor:
+                                          Theme.of(context).iconTheme.color,
+                                      activeColor:
+                                          Theme.of(context).iconTheme.color,
                                       inactiveTrackColor: Color(0xff878787),
                                       inactiveThumbColor:
-                                          ColorPalette.blackColor,
+                                          Theme.of(context).iconTheme.color,
                                     ),
                                   ),
                                 ),
@@ -224,11 +229,13 @@ class _state extends State<settings> {
                                           print(isSwitchedAppNoti);
                                         });
                                       },
-                                      activeTrackColor: ColorPalette.blackColor,
-                                      activeColor: ColorPalette.blackColor,
+                                      activeTrackColor:
+                                          Theme.of(context).iconTheme.color,
+                                      activeColor:
+                                          Theme.of(context).iconTheme.color,
                                       inactiveTrackColor: Color(0xff878787),
                                       inactiveThumbColor:
-                                          ColorPalette.blackColor,
+                                          Theme.of(context).iconTheme.color,
                                     ),
                                   ),
                                 ),
@@ -240,14 +247,12 @@ class _state extends State<settings> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                ),
+                SizedBox(height: 20),
                 Container(
                   padding: EdgeInsets.fromLTRB(20, 20, 10, 20),
-                  decoration: BoxDecoration(
-                      color: Color(0xffF6F6F6),
-                      borderRadius: BorderRadius.circular(10)),
+                  decoration: Theme.of(context).brightness == Brightness.dark
+                      ? darkBoxDecoration
+                      : lightBoxDecoration,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -259,9 +264,7 @@ class _state extends State<settings> {
                             fontWeight: FontWeight.w600,
                             fontFamily: 'Gilroy'),
                       ),
-                      SizedBox(
-                        height: 20,
-                      ),
+                      SizedBox(height: 20),
                       Container(
                         child: Column(
                           children: [
@@ -276,7 +279,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {
@@ -301,7 +304,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {},
@@ -319,7 +322,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {},
@@ -337,7 +340,7 @@ class _state extends State<settings> {
                                 IconButton(
                                   icon: Icon(
                                     Icons.arrow_forward_outlined,
-                                    color: Colors.black,
+                                    color: Theme.of(context).iconTheme.color,
                                     size: 22,
                                   ),
                                   onPressed: () {
@@ -353,9 +356,6 @@ class _state extends State<settings> {
                     ],
                   ),
                 ),
-                SizedBox(
-                  height: 20,
-                )
               ],
             ),
           ),
