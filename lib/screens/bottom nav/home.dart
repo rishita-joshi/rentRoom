@@ -1,11 +1,9 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:rent_a_room/config/contents.dart';
 import 'package:rent_a_room/config/font_asset.dart';
-import 'package:rent_a_room/config/routes.dart';
-import 'package:rent_a_room/screens/details.dart';
 import 'package:rent_a_room/themes/ColorPalette.dart';
+
 import '../../bloc/theme_cubit.dart';
 
 class HomePage extends StatefulWidget {
@@ -54,66 +52,34 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(100),
+        preferredSize: Size.fromHeight(60),
         child: Padding(
-          padding: const EdgeInsets.only(top: 30.0),
+          padding: const EdgeInsets.only(top: 10),
           child: AppBar(
             elevation: 0,
-            title: Padding(
-              padding: const EdgeInsets.only(top: 20.0),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  TextButton(
-                      onPressed: () {
-                        context.read<ThemeCubit>().switchTheme();
-                      },
-                      child: context.read<ThemeCubit>().state.themeMode ==
-                              ThemeMode.light
-                          ? Text(
-                              "light",
-                              style: TextStyle(color: Colors.amber),
-                            )
-                          : Text(
-                              "dark",
-                              style: TextStyle(color: Colors.amber),
-                            )),
-                  Text(
-                    'Current Location',
-                    style: FontStyles.textStyleBold(
-                        color: Theme.of(context).colorScheme.primary),
+            title: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'Current Location',
+                  style: FontStyles.textStyleBold(
+                      color: Theme.of(context).colorScheme.primary),
+                ),
+                SizedBox(width: 10),
+                GestureDetector(
+                  onTap: () {
+                    context.read<ThemeCubit>().switchTheme();
+                  },
+                  child: Icon(
+                    context.read<ThemeCubit>().state.themeMode ==
+                            ThemeMode.light
+                        ? Icons.light_mode_outlined
+                        : Icons.dark_mode_outlined,
+                    color: Theme.of(context).iconTheme.color,
+                    size: 25,
                   ),
-                  Row(
-                    children: [
-                      Icon(
-                        Icons.location_pin,
-                        color: Theme.of(context).iconTheme.color,
-                        size: 16,
-                      ),
-                      DropdownButton(
-                        dropdownColor: Theme.of(context).colorScheme.error,
-                        //   style: TextStyle(color: ),
-                        value: _selectedLocation,
-                        items: _locations.map((location) {
-                          return DropdownMenuItem(
-                            value: location,
-                            child: Text(
-                              location,
-                              style: FontStyles.textStyleBold(
-                                  color: Theme.of(context).colorScheme.primary),
-                            ),
-                          );
-                        }).toList(),
-                        onChanged: (value) {
-                          setState(() {
-                            _selectedLocation = value.toString();
-                          });
-                        },
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
             actions: [
               Container(
@@ -133,11 +99,12 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+        padding: EdgeInsets.only(left: 15, right: 15),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 16),
+            locationDropDownBtn(),
+            SizedBox(height: 10),
             TextField(
               decoration: InputDecoration(
                   prefixIcon: ImageIcon(
@@ -305,20 +272,62 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-}
 
-    // Container(
-    //   height: MediaQuery.of(context).size.height*0.35,
-    //   width: MediaQuery.of(context).size.width*0.2,
-    //   decoration: BoxDecoration(
-    //     borderRadius: BorderRadius.circular(10),
-    //     color: Theme.of(context).scaffoldBackgroundColor,
-    //     boxShadow: [
-    //       BoxShadow(
-    //        color: Colors.grey.withOpacity(0.5),
-    //         spreadRadius: 1,
-    //         blurRadius: 5,
-    //         offset: Offset(0, 3),
-    //       ),
-    //     ],
-    //   ),
+  Widget locationDropDownBtn() {
+    return Row(
+      children: [
+        Icon(
+          Icons.location_pin,
+          color: Theme.of(context).iconTheme.color,
+          size: 16,
+        ),
+        SizedBox(width: 8),
+        Container(
+          height: 50,
+          width: 200,
+          padding: const EdgeInsets.only(right: 15, left: 15),
+          child: DropdownButtonHideUnderline(
+            child: DropdownButton(
+              isExpanded: true,
+              iconSize: 30,
+              menuMaxHeight: 150,
+              dropdownColor: Theme.of(context).brightness == Brightness.dark
+                  ? ColorPalette.darkGrayColor
+                  : ColorPalette.whiteColor,
+              isDense: true,
+              iconDisabledColor: Theme.of(context).colorScheme.primary,
+              iconEnabledColor: Theme.of(context).colorScheme.primary,
+              value: _selectedLocation,
+              onChanged: (value) async {
+                setState(() {
+                  _selectedLocation = value.toString();
+                });
+              },
+              items: _locations
+                  .map<DropdownMenuItem>(
+                    (e) => DropdownMenuItem(
+                      value: e,
+                      child: Padding(
+                        padding: EdgeInsets.zero,
+                        child: Text(
+                          e,
+                          style: TextStyle(
+                            color: Theme.of(context).colorScheme.primary,
+                            fontSize: 14,
+                          ),
+                        ),
+                      ),
+                    ),
+                  )
+                  .toList(),
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+                fontSize: 14,
+              ),
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}

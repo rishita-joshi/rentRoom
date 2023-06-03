@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../themes/ColorPalette.dart';
+import '../utils/design_utils.dart';
 
 class SavedPage extends StatefulWidget {
   @override
@@ -45,9 +46,9 @@ class SavedPageState extends State<SavedPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: Size.fromHeight(120),
         child: Padding(
-          padding: const EdgeInsets.only(top: 50),
+          padding: const EdgeInsets.only(top: 20),
           child: Column(children: [
             AppBar(
               elevation: 0,
@@ -56,7 +57,7 @@ class SavedPageState extends State<SavedPage> {
                 child: IconButton(
                   icon: Icon(
                     Icons.arrow_back,
-                    color: Colors.black,
+                    color: Theme.of(context).colorScheme.primary,
                   ),
                   onPressed: () => Navigator.of(context).pop(),
                 ),
@@ -68,10 +69,12 @@ class SavedPageState extends State<SavedPage> {
                   controller: _searchController,
                   style: const TextStyle(color: Color(0xff878787)),
                   cursorColor: Color(0xff878787),
-                  decoration: const InputDecoration(
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10),
                     hintText: 'Advert',
-                    hintStyle:
-                        TextStyle(color: Color(0xff878787), fontSize: 15),
+                    hintStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 15),
                     suffixIcon: Icon(
                       Icons.search_rounded,
                     ),
@@ -93,20 +96,21 @@ class SavedPageState extends State<SavedPage> {
                   Padding(
                     padding: const EdgeInsets.only(right: 10.0),
                     child: Container(
-                      decoration: BoxDecoration(
-                          color: Color(0xffF6F6F6),
-                          borderRadius: BorderRadius.circular(5)),
+                      decoration:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? darkBoxFilterDecoration
+                              : lightBoxFilterDecoration,
                       height: 29,
                       width: 74,
                       child: Center(
                         child: InkWell(
-                          // splashColor: Color(0xffF6F6F6),
                           child: Text(
                             "Filters",
                             style: TextStyle(
-                                fontFamily: 'Inter',
-                                fontSize: 15,
-                                color: ColorPalette.blackColor),
+                              fontFamily: 'Inter',
+                              fontSize: 15,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
                           ),
                         ),
                       ),
@@ -133,18 +137,14 @@ class SavedPageState extends State<SavedPage> {
   }
 
   Widget _buildCard(Map<String, dynamic> cardData) {
-    return Container(
-      decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.grey.withOpacity(0.5),
-            spreadRadius: 1,
-            blurRadius: 5,
-            offset: Offset(0, 3),
-          ),
-        ],
-      ),
+    return Card(
+      elevation: 1,
+      color: Theme.of(context).brightness == Brightness.dark
+          ? ColorPalette.transparentColor
+          : ColorPalette.whiteColor,
+      shape: Theme.of(context).brightness == Brightness.dark
+          ? darkCardBorderTheme
+          : lightCardBorderTheme,
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Column(
@@ -155,9 +155,8 @@ class SavedPageState extends State<SavedPage> {
                 Padding(
                     padding: EdgeInsets.all(20),
                     child: ClipRRect(
-                      // margin: EdgeInsets.only(right: 8.0),
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      child: Image.network(cardData['imageUrl']),
+                      child: Image.network(cardData['imageUrl'], scale: 1.1),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
@@ -167,10 +166,11 @@ class SavedPageState extends State<SavedPage> {
                       Text(
                         cardData['bio'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12,
-                            height: 1.5,
-                            color: Color(0xff878787)),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          height: 1.5,
+                          color: ColorPalette.textColorLightGray,
+                        ),
                         maxLines: 3,
                       ),
                       SizedBox(height: 15),
@@ -178,42 +178,61 @@ class SavedPageState extends State<SavedPage> {
                         cardData['name'],
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
-                          color: ColorPalette.blackColor,
+                          color: Theme.of(context).colorScheme.primary,
                           fontSize: 16,
                         ),
                       ),
-                      SizedBox(
-                        height: 10,
-                      ),
+                      SizedBox(height: 10),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 10),
-                            child: SizedBox(
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 28,
                               width: 80,
-                              height: 26,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: ColorPalette.blackColor),
-                                onPressed: () {
-                                  // TODO: Save card to profile
-                                },
-                                child: Text('Save'),
+                              margin: EdgeInsets.only(right: 10),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: ColorPalette.darkGrayColor,
+                                border: Border.all(
+                                  color: ColorPalette.whiteColor,
+                                  width: 1,
+                                ), //Border.all
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                'Save',
+                                style: TextStyle(
+                                  color: ColorPalette.whiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 10),
-                            child: SizedBox(
-                              height: 26,
-                              width: 90,
-                              child: ElevatedButton(
-                                style: ElevatedButton.styleFrom(
-                                    backgroundColor: ColorPalette.blackColor),
-                                onPressed: () {
-                                  // TODO: Redirect to chat page with user
-                                },
-                                child: Text('Contact'),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 28,
+                              width: 80,
+                              margin: EdgeInsets.only(right: 10),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: ColorPalette.darkGrayColor,
+                                border: Border.all(
+                                  color: ColorPalette.whiteColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                'Contact',
+                                style: TextStyle(
+                                  color: ColorPalette.whiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                           ),
@@ -235,16 +254,18 @@ class SavedPageState extends State<SavedPage> {
                       Text(
                         'Rent',
                         style: TextStyle(
-                            color: Color(0xff878787),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600),
+                          color: ColorPalette.textColorLightGray,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       Text(
                         cardData['budget'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: ColorPalette.blackColor),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                     ],
                   ),
@@ -254,16 +275,17 @@ class SavedPageState extends State<SavedPage> {
                       Text(
                         'Available',
                         style: TextStyle(
-                            color: Color(0xff878787),
+                            color: ColorPalette.textColorLightGray,
                             fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         cardData['date'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: ColorPalette.blackColor),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                     ],
                   ),
@@ -273,16 +295,17 @@ class SavedPageState extends State<SavedPage> {
                       Text(
                         'Location',
                         style: TextStyle(
-                            color: Color(0xff878787),
+                            color: ColorPalette.textColorLightGray,
                             fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
                       Text(
                         cardData['location'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w600,
-                            fontSize: 12,
-                            color: ColorPalette.blackColor),
+                          fontWeight: FontWeight.w600,
+                          fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
+                        ),
                       ),
                     ],
                   ),

@@ -45,67 +45,76 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
-        child: Column(children: [
-          AppBar(
-            leading: IconButton(
-              icon: Icon(
-                Icons.arrow_back,
-              ),
-              onPressed: () => Navigator.of(context).pop(),
-            ),
-            leadingWidth: MediaQuery.of(context).size.width * 0.15,
-            title: SizedBox(
-              height: 40,
-              child: TextField(
-                controller: _searchController,
-                style: const TextStyle(color: Color(0xff878787)),
-                cursorColor: Color(0xff878787),
-                decoration: const InputDecoration(
-                  hintText: 'Recommendation',
-                  hintStyle: TextStyle(color: Color(0xff878787), fontSize: 15),
-                  suffixIcon: Icon(
-                    Icons.search_rounded,
-                  ),
-                  enabledBorder: const OutlineInputBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(10)),
-                      borderSide:
-                          BorderSide(width: 1, color: Color(0xff878787))),
+        preferredSize: Size.fromHeight(100),
+        child: Column(
+          children: [
+            AppBar(
+              elevation: 0,
+              leading: IconButton(
+                icon: Icon(
+                  Icons.arrow_back,
                 ),
-                onChanged: (value) {
-                  // Perform search functionality here
-                },
+                onPressed: () => Navigator.of(context).pop(),
+              ),
+              leadingWidth: MediaQuery.of(context).size.width * 0.15,
+              title: SizedBox(
+                height: 40,
+                child: TextField(
+                  controller: _searchController,
+                  style: const TextStyle(color: Color(0xff878787)),
+                  cursorColor: Color(0xff878787),
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.only(left: 10),
+                    hintText: 'Recommendation',
+                    hintStyle: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                        fontSize: 15),
+                    suffixIcon: Icon(
+                      Icons.search_rounded,
+                    ),
+                    enabledBorder: const OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10)),
+                        borderSide:
+                            BorderSide(width: 1, color: Color(0xff878787))),
+                  ),
+                  onChanged: (value) {
+                    // Perform search functionality here
+                  },
+                ),
               ),
             ),
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 10.0),
-                child: Container(
-                  decoration: Theme.of(context).brightness == Brightness.dark
-                      ? darkBoxDecoration
-                      : lightBoxDecoration,
-                  height: 29,
-                  width: 74,
-                  child: Center(
-                    child: InkWell(
-                      // splashColor: Color(0xffF6F6F6),
-                      child: Text(
-                        "Filters",
-                        style: TextStyle(
-                          fontFamily: 'Inter',
-                          fontSize: 15,
+            Container(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.only(right: 10.0),
+                    child: Container(
+                      decoration:
+                          Theme.of(context).brightness == Brightness.dark
+                              ? darkBoxFilterDecoration
+                              : lightBoxFilterDecoration,
+                      height: 29,
+                      width: 74,
+                      child: Center(
+                        child: InkWell(
+                          child: Text(
+                            "Filters",
+                            style: TextStyle(
+                              fontFamily: 'Inter',
+                              fontSize: 15,
+                              color: Theme.of(context).colorScheme.primary,
+                            ),
+                          ),
                         ),
                       ),
                     ),
                   ),
-                ),
+                ],
               ),
-            ],
-          ),
-        ]),
+            ),
+          ],
+        ),
       ),
       body: ListView.builder(
         itemCount: _cardData.length,
@@ -120,23 +129,14 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
   }
 
   Widget _buildCard(Map<String, dynamic> cardData) {
-    return Container(
-      decoration: Theme.of(context).brightness == Brightness.dark
-          ? darkBoxDecoration
-          : lightBoxDecoration,
-
-      // decoration: BoxDecoration(
-      //   borderRadius: BorderRadius.circular(10),
-      //   color: Colors.white,
-      //   boxShadow: [
-      //     BoxShadow(
-      //       color: Colors.grey.withOpacity(0.5),
-      //       spreadRadius: 1,
-      //       blurRadius: 5,
-      //       offset: Offset(0, 3),
-      //     ),
-      //   ],
-      // ),
+    return Card(
+      elevation: 1,
+      color: Theme.of(context).brightness == Brightness.dark
+          ? ColorPalette.transparentColor
+          : ColorPalette.whiteColor,
+      shape: Theme.of(context).brightness == Brightness.dark
+          ? darkCardBorderTheme
+          : lightCardBorderTheme,
       child: Padding(
         padding: const EdgeInsets.all(4.0),
         child: Column(
@@ -149,7 +149,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                     child: ClipRRect(
                       // margin: EdgeInsets.only(right: 8.0),
                       borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                      child: Image.network(cardData['imageUrl']),
+                      child: Image.network(cardData['imageUrl'], scale: 1.1),
                     )),
                 Padding(
                   padding: const EdgeInsets.only(top: 14.0),
@@ -159,10 +159,11 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         cardData['bio'],
                         style: TextStyle(
-                            fontWeight: FontWeight.w500,
-                            fontSize: 12,
-                            height: 1.5,
-                            color: Color(0xff878787)),
+                          fontWeight: FontWeight.w500,
+                          fontSize: 12,
+                          height: 1.5,
+                          color: ColorPalette.textColorLightGray,
+                        ),
                         maxLines: 3,
                       ),
                       SizedBox(height: 15),
@@ -171,36 +172,62 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                       SizedBox(
                         height: 10,
                       ),
                       Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Padding(
-                            padding: EdgeInsets.only(right: 10),
-                            child: SizedBox(
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 28,
                               width: 80,
-                              height: 26,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  // TODO: Save card to profile
-                                },
-                                child: Text('Save'),
+                              margin: EdgeInsets.only(right: 10),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: ColorPalette.darkGrayColor,
+                                border: Border.all(
+                                  color: ColorPalette.whiteColor,
+                                  width: 1,
+                                ), //Border.all
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                'Save',
+                                style: TextStyle(
+                                  color: ColorPalette.whiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                           ),
-                          Padding(
-                            padding: EdgeInsets.only(right: 10),
-                            child: SizedBox(
-                              height: 26,
-                              width: 90,
-                              child: ElevatedButton(
-                                onPressed: () {
-                                  // TODO: Redirect to chat page with user
-                                },
-                                child: Text('Contact'),
+                          GestureDetector(
+                            onTap: () {},
+                            child: Container(
+                              height: 28,
+                              width: 80,
+                              margin: EdgeInsets.only(right: 10),
+                              alignment: Alignment.center,
+                              decoration: BoxDecoration(
+                                color: ColorPalette.darkGrayColor,
+                                border: Border.all(
+                                  color: ColorPalette.whiteColor,
+                                  width: 1,
+                                ),
+                                borderRadius: BorderRadius.circular(6),
+                              ),
+                              child: Text(
+                                'Contact',
+                                style: TextStyle(
+                                  color: ColorPalette.whiteColor,
+                                  fontWeight: FontWeight.w600,
+                                  fontSize: 14,
+                                ),
                               ),
                             ),
                           ),
@@ -222,15 +249,17 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         'Rent',
                         style: TextStyle(
-                            color: Color(0xff878787),
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600),
+                          color: ColorPalette.textColorLightGray,
+                          fontSize: 12,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                       Text(
                         cardData['budget'],
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ],
@@ -241,7 +270,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         'Available',
                         style: TextStyle(
-                            color: Color(0xff878787),
+                            color: ColorPalette.textColorLightGray,
                             fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
@@ -250,6 +279,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ],
@@ -260,7 +290,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                       Text(
                         'Location',
                         style: TextStyle(
-                            color: Color(0xff878787),
+                            color: ColorPalette.textColorLightGray,
                             fontSize: 12,
                             fontWeight: FontWeight.w600),
                       ),
@@ -269,6 +299,7 @@ class _RecommendationsPageState extends State<RecommendationsPage> {
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 12,
+                          color: Theme.of(context).colorScheme.primary,
                         ),
                       ),
                     ],

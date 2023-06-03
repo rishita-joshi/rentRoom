@@ -28,9 +28,16 @@ abstract class AppTheme {
                 iconSize: MaterialStatePropertyAll(12))),
         cardTheme: CardTheme(
             color: ColorPalette.whiteColor,
-            elevation: 3,
+            elevation: 2,
+            // shape: RoundedRectangleBorder(
+            //   borderRadius: BorderRadius.circular(15),
+            // ),
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
+              side: BorderSide(
+                width: 1.5,
+                color: ColorPalette.whiteColor,
+              ),
             )),
         buttonTheme: ButtonThemeData(
           buttonColor: ColorPalette.darkGrayColor,
@@ -70,7 +77,7 @@ abstract class AppTheme {
         iconTheme: IconThemeData(color: ColorPalette.whiteColor),
         cardTheme: CardTheme(
             color: ColorPalette.darkGrayColor,
-            elevation: 3,
+            elevation: 2,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(15),
               side: BorderSide(

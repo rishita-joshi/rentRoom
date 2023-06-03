@@ -77,3 +77,36 @@ var darkElevatedButtonTheme = ElevatedButton.styleFrom(
     borderRadius: BorderRadius.circular(13.0),
   ),
 );
+
+ShapeBorder lightCardBorderTheme = RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(15),
+  side: BorderSide(
+    width: 1.5,
+    color: ColorPalette.blackColor.withOpacity(0.1),
+  ),
+);
+ShapeBorder darkCardBorderTheme = RoundedRectangleBorder(
+  borderRadius: BorderRadius.circular(15),
+  side: BorderSide(
+    width: 1.5,
+    color: ColorPalette.whiteColor,
+  ),
+);
+
+var lightBoxFilterDecoration = BoxDecoration(
+  color: ColorPalette.textColorLightGray.withOpacity(0.2),
+  border: Border.all(
+    color: ColorPalette.whiteColor,
+    width: 1,
+  ),
+  borderRadius: BorderRadius.circular(6),
+);
+
+var darkBoxFilterDecoration = BoxDecoration(
+  color: ColorPalette.darkGrayColor,
+  border: Border.all(
+    color: ColorPalette.whiteColor,
+    width: 1,
+  ),
+  borderRadius: BorderRadius.circular(6),
+);
