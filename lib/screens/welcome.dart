@@ -1,5 +1,6 @@
 import 'package:assorted_layout_widgets/assorted_layout_widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:rent_a_room/screens/auth/login.dart';
 import '../themes/ColorPalette.dart';
 
@@ -17,12 +18,7 @@ class welcome extends StatelessWidget {
           actions: [
             InkWell(
               onTap: () {
-                Navigator.of(context).pushReplacement(MaterialPageRoute(
-                    builder: (BuildContext context) => LoginPage()));
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => LoginPage()),
-                // );
+                LoginPage().launch(context, isNewTask: true);
               },
               child: Padding(
                 padding: EdgeInsets.only(

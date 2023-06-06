@@ -14,6 +14,7 @@ class ThemeCubit extends Cubit<ThemeState> {
   final ThemePersistence _themeRepository;
   late StreamSubscription<CustomTheme> _themeSubscription;
   static late bool _isDarkTheme;
+  static bool isLoginPage = true;
 
   void getCurrentTheme() {
     _themeSubscription = _themeRepository.getTheme().listen(

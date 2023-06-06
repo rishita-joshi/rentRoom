@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:rent_a_room/config/contents.dart';
 import 'package:rent_a_room/config/font_asset.dart';
+import 'package:rent_a_room/screens/details.dart';
 import 'package:rent_a_room/themes/ColorPalette.dart';
 
 import '../../bloc/theme_cubit.dart';
@@ -120,14 +122,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   suffixIcon: IconButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => Contents()),
-                      );
-                      // Navigator.push(
-                      //   context,
-                      //   MaterialPageRoute(builder: (context) => FilterPage()),
-                      // );
+                      Contents().launch(context);
                     },
                     icon: Container(
                       decoration: BoxDecoration(
@@ -212,11 +207,7 @@ class _HomePageState extends State<HomePage> {
         children: [
           InkWell(
             onTap: () {
-              // Navigator.pushNamed(context, Routes.pageDetailsRoute);
-              // Navigator.push(
-              //   context,
-              //   MaterialPageRoute(builder: (context) => details()),
-              // );
+              details().launch(context);
             },
             child: ClipRRect(
               borderRadius: BorderRadius.only(

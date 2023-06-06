@@ -26,9 +26,12 @@ class FontStyles {
   static TextStyle textStyleRegular(
           {Color color = ColorPalette.blackColor,
           double? fontSize = 19,
+          bool isUnderLine = false,
           FontWeight? fontWeight = FontWeight.normal,
           fontFamily = fontFamilyBold}) =>
       TextStyle(
+          decoration:
+              isUnderLine ? TextDecoration.underline : TextDecoration.none,
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,
@@ -43,19 +46,27 @@ class FontStyles {
   static TextStyle textStyleBold(
           {Color color = ColorPalette.blackColor,
           double? fontSize = 19,
+          bool isUnderLine = false,
           FontWeight? fontWeight = FontWeight.bold,
           fontFamily = fontFamilyRegular}) =>
       TextStyle(
           color: color,
           fontSize: fontSize,
           fontWeight: fontWeight,
+          decoration:
+              isUnderLine ? TextDecoration.underline : TextDecoration.none,
           fontFamily: fontFamilyBold);
 
   static TextStyle textStyleSemiBold(
           {Color color = ColorPalette.blackColor,
+          bool isUnderLine = false,
           double? fontSize = 16}) =>
       TextStyle(
-          color: color, fontSize: fontSize, fontFamily: fontFamilySemiBold);
+          decoration:
+              isUnderLine ? TextDecoration.underline : TextDecoration.none,
+          color: color,
+          fontSize: fontSize,
+          fontFamily: fontFamilySemiBold);
 
   static TextStyle textStyleCustom(
           {Color color = ColorPalette.blackColor,

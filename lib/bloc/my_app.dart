@@ -5,8 +5,6 @@ import 'package:rent_a_room/bloc/theme_reposatry.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/themes/app_theme.dart';
 
-
-
 class App extends StatelessWidget {
   const App({required this.themeRepository, super.key});
 
@@ -39,6 +37,7 @@ class AppView extends StatelessWidget {
           theme: AppTheme.lightTheme,
           darkTheme: AppTheme.darkTheme,
           themeMode: state.themeMode,
+          //  navigatorKey:  navigatorKey,
           home: const HomePage(),
         );
       },

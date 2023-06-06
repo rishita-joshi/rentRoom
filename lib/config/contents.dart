@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:rent_a_room/config/routes.dart';
 import 'package:rent_a_room/payment_gatway/paypalPayment.dart';
 import 'package:rent_a_room/screens/auth/login.dart';
+import 'package:rent_a_room/screens/auth/login_page.dart';
 import 'package:rent_a_room/screens/bottom%20nav/chat.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/screens/bottom%20nav/persisentnav.dart';
@@ -14,7 +16,7 @@ import 'package:rent_a_room/screens/recommendations.dart';
 import 'package:rent_a_room/screens/saved.dart';
 import 'package:rent_a_room/screens/splash.dart';
 import 'package:rent_a_room/screens/welcome.dart';
-
+import 'package:nb_utils/nb_utils.dart';
 import '../screens/auth/registeration.dart';
 
 class Contents extends StatelessWidget {
@@ -27,10 +29,11 @@ class Contents extends StatelessWidget {
         body: Column(children: [
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => HomePage()),
-              );
+              HomePage().launch(context);
+              //     Navigator.push(
+              //       context,
+              //       MaterialPageRoute(builder: (context) => HomePage()),
+              //     );
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -48,10 +51,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => profile()),
-              );
+              profile().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -69,10 +69,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => settings()),
-              );
+              settings().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -90,10 +87,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => ContactPage()),
-              );
+              ContactPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -111,10 +105,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => details()),
-              );
+              details().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -132,10 +123,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => FilterPage()),
-              );
+              FilterPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -153,10 +141,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => LoginPage()),
-              );
+              LoginPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -174,10 +159,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => PrivacyPolicyPage()),
-              );
+              Login().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -195,10 +177,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RecommendationsPage()),
-              );
+              RecommendationsPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -216,10 +195,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => RegisterPage()),
-              );
+              RegisterPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -237,10 +213,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SavedPage()),
-              );
+              SavedPage().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -258,10 +231,7 @@ class Contents extends StatelessWidget {
           ),
           InkWell(
             onTap: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => SplashScreen()),
-              );
+              SplashScreen().launch(context);
             },
             child: Padding(
               padding: EdgeInsets.only(
@@ -319,78 +289,76 @@ class Contents extends StatelessWidget {
               ),
             ),
           ),
-
-TextButton(onPressed: (){
- Navigator.push(
+          TextButton(
+            onPressed: () {
+              Navigator.push(
                 context,
                 MaterialPageRoute(builder: (context) => ChatPage()),
               );
-
-
-}, child: Text("chat page"),),
-
-
-TextButton(onPressed: (){
- Navigator.push(
+            },
+            child: Text("chat page"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => UsePaypal(
-                   sandboxMode: true,
-                            clientId:
-                                "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
-                            secretKey:
-                                "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
-                            returnURL: "https://samplesite.com/return",
-                            cancelURL: "https://samplesite.com/cancel", onCancel: (){},  onSuccess: (){}, transactions: const [
-                              {
-                                "amount": {
-                                  "total": '10.12',
-                                  "currency": "USD",
-                                  "details": {
-                                    "subtotal": '10.12',
-                                    "shipping": '0',
-                                    "shipping_discount": 0
-                                  }
-                                },
-                                "description":
-                                    "The payment transaction description.",
-                                // "payment_options": {
-                                //   "allowed_payment_method":
-                                //       "INSTANT_FUNDING_SOURCE"
-                                // },
-                                "item_list": {
-                                  "items": [
-                                    {
-                                      "name": "A demo product",
-                                      "quantity": 1,
-                                      "price": '10.12',
-                                      "currency": "USD"
-                                    }
-                                  ],
-
-                                  // shipping address is not required though
-                                  "shipping_address": {
-                                    "recipient_name": "Jane Foster",
-                                    "line1": "Travis County",
-                                    "line2": "",
-                                    "city": "Austin",
-                                    "country_code": "US",
-                                    "postal_code": "73301",
-                                    "phone": "+00000000",
-                                    "state": "Texas"
-                                  },
+                MaterialPageRoute(
+                    builder: (context) => UsePaypal(
+                          sandboxMode: true,
+                          clientId:
+                              "AW1TdvpSGbIM5iP4HJNI5TyTmwpY9Gv9dYw8_8yW5lYIbCqf326vrkrp0ce9TAqjEGMHiV3OqJM_aRT0",
+                          secretKey:
+                              "EHHtTDjnmTZATYBPiGzZC_AZUfMpMAzj2VZUeqlFUrRJA_C0pQNCxDccB5qoRQSEdcOnnKQhycuOWdP9",
+                          returnURL: "https://samplesite.com/return",
+                          cancelURL: "https://samplesite.com/cancel",
+                          onCancel: () {},
+                          onSuccess: () {},
+                          transactions: const [
+                            {
+                              "amount": {
+                                "total": '10.12',
+                                "currency": "USD",
+                                "details": {
+                                  "subtotal": '10.12',
+                                  "shipping": '0',
+                                  "shipping_discount": 0
                                 }
+                              },
+                              "description":
+                                  "The payment transaction description.",
+                              // "payment_options": {
+                              //   "allowed_payment_method":
+                              //       "INSTANT_FUNDING_SOURCE"
+                              // },
+                              "item_list": {
+                                "items": [
+                                  {
+                                    "name": "A demo product",
+                                    "quantity": 1,
+                                    "price": '10.12',
+                                    "currency": "USD"
+                                  }
+                                ],
+
+                                // shipping address is not required though
+                                "shipping_address": {
+                                  "recipient_name": "Jane Foster",
+                                  "line1": "Travis County",
+                                  "line2": "",
+                                  "city": "Austin",
+                                  "country_code": "US",
+                                  "postal_code": "73301",
+                                  "phone": "+00000000",
+                                  "state": "Texas"
+                                },
                               }
-                            ],
-)
-                ),
+                            }
+                          ],
+                        )),
               );
-
-
-}, child: Text("payment page"),),
-
-
-
-
+            },
+            child: Text("payment page"),
+          ),
         ]),
       ),
     );

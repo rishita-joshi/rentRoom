@@ -57,6 +57,7 @@ dependencies:
   webview_flutter_android: ^3.7.0
   webview_flutter_wkwebview: ^3.4.3
   bottom_bar_with_sheet:
+  nb_utils:
 
   
 dev_dependencies:

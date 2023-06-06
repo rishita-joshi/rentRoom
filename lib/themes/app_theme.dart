@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rent_a_room/config/font_asset.dart';
 import 'package:rent_a_room/themes/ColorPalette.dart';
 
 abstract class AppTheme {
@@ -42,11 +43,16 @@ abstract class AppTheme {
         buttonTheme: ButtonThemeData(
           buttonColor: ColorPalette.darkGrayColor,
           shape:
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(15.0)),
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(10.0)),
         ),
         elevatedButtonTheme: ElevatedButtonThemeData(
             style: ButtonStyle(
-          elevation: MaterialStatePropertyAll(7.0),
+          //    textStyle: FontStyles.textStyleRegular(),
+          shape: MaterialStateProperty.resolveWith<OutlinedBorder>((_) {
+            return RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10));
+          }),
+          elevation: MaterialStatePropertyAll(3.0),
           backgroundColor: MaterialStatePropertyAll(ColorPalette.darkGrayColor),
           minimumSize: MaterialStateProperty.all(Size(170.0, 50.0)),
         )),

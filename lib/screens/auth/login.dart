@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:rent_a_room/config/routes.dart';
 import 'package:rent_a_room/screens/bottom%20nav/persisentnav.dart';
 
@@ -177,11 +178,7 @@ class LoginPage extends StatelessWidget {
                     padding: EdgeInsets.all(15.0),
                     // shape: RoundedRectangleBorder(),
                     onPressed: () {
-                      //Navigator.pushNamed(context, Routes.bottomBarRoute);
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => BottomNavBar()),
-                      );
+                      BottomNavBar().launch(context);
                     },
                   ),
                 ),

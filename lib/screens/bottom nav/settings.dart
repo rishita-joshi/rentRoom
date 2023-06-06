@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:rent_a_room/config/routes.dart';
+import 'package:rent_a_room/screens/auth/login_page.dart';
 import 'package:rent_a_room/screens/bottom%20nav/profile.dart';
 import 'package:rent_a_room/screens/privacy.dart';
 
@@ -96,11 +98,7 @@ class _state extends State<settings> {
                                     size: 22,
                                   ),
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) => profile()),
-                                    );
+                                    profile().launch(context);
                                   },
                                 ),
                               ],
@@ -283,12 +281,7 @@ class _state extends State<settings> {
                                     size: 22,
                                   ),
                                   onPressed: () {
-                                    Navigator.push(
-                                      context,
-                                      MaterialPageRoute(
-                                          builder: (context) =>
-                                              PrivacyPolicyPage()),
-                                    );
+                                    PrivacyPolicyPage().launch(context);
                                   },
                                 ),
                               ],
@@ -344,8 +337,7 @@ class _state extends State<settings> {
                                     size: 22,
                                   ),
                                   onPressed: () {
-                                    Navigator.pushNamed(
-                                        context, Routes.loginRoute);
+                                    Login().launch(context, isNewTask: false);
                                   },
                                 ),
                               ],

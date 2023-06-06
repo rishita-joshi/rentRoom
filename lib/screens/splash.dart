@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:nb_utils/nb_utils.dart';
 import 'package:rent_a_room/routes.dart';
 import 'package:rent_a_room/themes/ColorPalette.dart';
 import 'package:flutter/material.dart';
@@ -37,13 +38,7 @@ class Splash extends State<SplashScreen> {
                 child: Image.asset('assets/images/Splash/logo.png'),
               ),
               onTap: () {
-                Navigator.pushNamedAndRemoveUntil(
-                    context, Routes.welComeRoute, (route) => false);
-
-                // Navigator.push(
-                //   context,
-                //   MaterialPageRoute(builder: (context) => welcome()),
-                // );
+                welcome().launch(context, isNewTask: true);
               },
             ),
             Spacer(),
