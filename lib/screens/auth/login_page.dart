@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:nb_utils/nb_utils.dart';
+import 'package:provider/provider.dart';
 import 'package:rent_a_room/bloc/theme_cubit.dart';
 import 'package:rent_a_room/components/custom_draw.dart';
 import 'package:rent_a_room/components/textformfield_widget.dart';
 import 'package:rent_a_room/config/font_asset.dart';
+import 'package:rent_a_room/providers/login_provider.dart';
 import 'package:rent_a_room/screens/bottom%20nav/home.dart';
 import 'package:rent_a_room/themes/ColorPalette.dart';
 import 'package:rent_a_room/utils/image_asset.dart';
@@ -24,176 +26,90 @@ class _LoginState extends State<Login> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: Container(
-      constraints: BoxConstraints.expand(),
-      decoration: const BoxDecoration(
-        image: DecorationImage(
-            image: AssetImage("assets/images/Splash/loginbg.png"),
-            fit: BoxFit.cover),
-      ),
-      child: Stack(
-        children: [
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: MediaQuery.of(context).size.height * 0.6,
-              width: MediaQuery.of(context).size.width,
-              decoration: BoxDecoration(
-                  color: ColorPalette.whiteColor,
-                  borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(15.0),
-                    topRight: Radius.circular(15.0),
-                  )),
-              child: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: SingleChildScrollView(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            left: 20.0, right: 20, top: 8.0, bottom: 8.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                changeIsLogin();
-                              },
-                              child: Text(
-                                "Login",
-                                style: isLogin
-                                    ? FontStyles.textStyleSemiBold(
-                                        fontSize: 23, isUnderLine: true)
-                                    : FontStyles.textStyleSemiBold(
-                                        fontSize: 23,
-                                      ),
+    return Consumer<LoginProvider>(builder: (context, providerObj, child) {
+      return Scaffold(
+          body: Container(
+        constraints: BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/Splash/loginbg.png"),
+              fit: BoxFit.cover),
+        ),
+        child: Stack(
+          children: [
+            Align(
+              alignment: Alignment.bottomCenter,
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.6,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                    color: ColorPalette.whiteColor,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(15.0),
+                      topRight: Radius.circular(15.0),
+                    )),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                              left: 20.0, right: 20, top: 8.0, bottom: 8.0),
+                          child: Row(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: [
+                              InkWell(
+                                onTap: () {
+                                  providerObj.changeLoginBoolValue();
+                                },
+                                child: Text(
+                                  "Login",
+                                  style: providerObj.isLoginCliked
+                                      ? FontStyles.textStyleSemiBold(
+                                          fontSize: 23, isUnderLine: true)
+                                      : FontStyles.textStyleSemiBold(
+                                          fontSize: 23,
+                                        ),
+                                ),
                               ),
-                            ),
-                            SizedBox(
-                              width: MediaQuery.of(context).size.width * 0.2,
-                            ),
-                            InkWell(
-                              onTap: () {
-                                changeIsSignUp();
-                              },
-                              child: Text(
-                                "SignUp",
-                                style: FontStyles.textStyleSemiBold(
-                                    fontSize: 23, isUnderLine: true),
+                              SizedBox(
+                                width: MediaQuery.of(context).size.width * 0.2,
                               ),
-                            ),
-                          ],
+                              InkWell(
+                                onTap: () {
+                                  providerObj.changeSignupBoolValue();
+                                },
+                                child: Text(
+                                  "SignUp",
+                                  style: providerObj.isSignUpCliked
+                                      ? FontStyles.textStyleSemiBold(
+                                          fontSize: 23, isUnderLine: true)
+                                      : FontStyles.textStyleSemiBold(
+                                          fontSize: 23,
+                                        ),
+                                ),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                      TextWidget(hintText: "Enter Email"),
-                      TextWidget(hintText: "Enter Password"),
-                      isLogin
-                          ? SizedBox()
-                          : TextWidget(hintText: "Confirm Password"),
-                      isLogin
-                          ? Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Row(
-                                children: [
-                                  Switch(
-                                    onChanged: toggleSwitch,
-                                    value: true,
-                                    activeColor: ColorPalette.darkGrayColor,
-                                    activeTrackColor: Colors.yellow,
-                                    inactiveThumbColor: Colors.redAccent,
-                                    inactiveTrackColor: Colors.orange,
-                                  ),
-                                  Text(
-                                    'Remember Me',
-                                    style: FontStyles.textStyleRegular(
-                                        fontSize: 16, isUnderLine: false),
-                                  ),
-                                  SizedBox(
-                                    width: 40,
-                                  ),
-                                  Text(
-                                    'Forgot Password',
-                                    style: FontStyles.textStyleRegular(
-                                        fontSize: 16, isUnderLine: true),
-                                  ),
-                                ],
-                              ),
-                            )
-                          : SizedBox(),
-                      SizedBox(
-                        height: 5,
-                      ),
-                      Center(
-                        child: SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.7,
-                            child: isLogin
-                                ? ElevatedButton(
-                                    onPressed: () {
-                                      HomePage().launch(context);
-                                    },
-                                    child: Text(
-                                      "Login",
-                                      style: FontStyles.textStyleRegular(
-                                          fontSize: 19.0,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onPrimary),
-                                    ))
-                                : ElevatedButton(
-                                    onPressed: () {},
-                                    child: Text(
-                                      "NEXT",
-                                      style: FontStyles.textStyleRegular(
-                                          fontSize: 19.0,
-                                          color: Theme.of(context)
-                                              .colorScheme
-                                              .onPrimary),
-                                    ))),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                            top: 15, left: 10.0, right: 10.0),
-                        child: Row(
-                          crossAxisAlignment: CrossAxisAlignment.center,
-                          mainAxisAlignment: MainAxisAlignment.spaceAround,
-                          children: [
-                            Text(
-                              isLogin
-                                  ? "Don’t have an Account?"
-                                  : "Already have an Account?",
-                              style: FontStyles.textStyleRegular(fontSize: 19),
-                            ),
-                            Text(
-                              isLogin ? "Register Here" : "Login Here",
-                              style: isLogin
-                                  ? FontStyles.textStyleBold(
-                                      fontSize: 19, isUnderLine: false)
-                                  : FontStyles.textStyleBold(
-                                      fontSize: 19, isUnderLine: true),
-                            ),
-                          ],
-                        ),
-                      ),
-                      Divider(
-                        height: 40,
-                        thickness: 1,
-                        color: ColorPalette.darkGrayColor,
-                      ),
-                      socialLogin(),
-                    ],
+                        providerObj.isNext
+                            ? isNextView(context)
+                            : isSignUpView(providerObj),
+                      ],
+                    ),
                   ),
                 ),
               ),
             ),
-          ),
-        ],
-      ),
-    ));
+          ],
+        ),
+      ));
+    });
   }
 
   socialLogin() {
@@ -232,5 +148,137 @@ class _LoginState extends State<Login> {
     setState(() {
       isLogin = false;
     });
+  }
+
+  isNextView(BuildContext context) {
+    return Column(
+      children: [
+        TextWidget(hintText: "Enter First Name"),
+        TextWidget(hintText: "Enter Last Name"),
+        TextWidget(hintText: "Enter Mobile Number"),
+        SizedBox(
+          height: 10,
+        ),
+        SizedBox(
+            width: MediaQuery.of(context).size.width * 0.7,
+            child: ElevatedButton(onPressed: () {}, child: Text("Sign Up"))),
+        SizedBox(
+          height: 10,
+        ),
+        Row(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              "Already have an Account?",
+              style: FontStyles.textStyleRegular(fontSize: 19),
+            ),
+            Text("Login Here",
+                style: FontStyles.textStyleSemiBold(
+                    color: ColorPalette.darkGrayColor,
+                    fontSize: 19,
+                    isUnderLine: true)),
+          ],
+        ),
+      ],
+    );
+  }
+
+  isSignUpView(LoginProvider providerObj) {
+    return Column(
+      children: [
+        TextWidget(hintText: "Enter Email"),
+        TextWidget(hintText: "Enter Password"),
+        providerObj.isLoginCliked
+            ? SizedBox()
+            : TextWidget(hintText: "Confirm Password"),
+        providerObj.isLoginCliked
+            ? Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: Row(
+                  children: [
+                    Switch(
+                      onChanged: toggleSwitch,
+                      value: true,
+                      activeColor: ColorPalette.darkGrayColor,
+                      activeTrackColor: Colors.yellow,
+                      inactiveThumbColor: Colors.redAccent,
+                      inactiveTrackColor: Colors.orange,
+                    ),
+                    Text(
+                      'Remember Me',
+                      style: FontStyles.textStyleRegular(
+                          fontSize: 16, isUnderLine: false),
+                    ),
+                    SizedBox(
+                      width: 40,
+                    ),
+                    Text(
+                      'Forgot Password',
+                      style: FontStyles.textStyleRegular(
+                          fontSize: 16, isUnderLine: true),
+                    ),
+                  ],
+                ),
+              )
+            : SizedBox(),
+        SizedBox(
+          height: 5,
+        ),
+        Center(
+          child: SizedBox(
+              width: MediaQuery.of(context).size.width * 0.7,
+              child: providerObj.isLoginCliked
+                  ? ElevatedButton(
+                      onPressed: () {
+                        HomePage().launch(context);
+                      },
+                      child: Text(
+                        "Login",
+                        style: FontStyles.textStyleRegular(
+                            fontSize: 19.0,
+                            color: Theme.of(context).colorScheme.onPrimary),
+                      ))
+                  : ElevatedButton(
+                      onPressed: () {
+                        providerObj.changeNextValue();
+                      },
+                      child: Text(
+                        "NEXT",
+                        style: FontStyles.textStyleRegular(
+                            fontSize: 19.0,
+                            color: Theme.of(context).colorScheme.onPrimary),
+                      ))),
+        ),
+        Padding(
+          padding: const EdgeInsets.only(top: 15, left: 10.0, right: 10.0),
+          child: Row(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Text(
+                providerObj.isLoginCliked
+                    ? "Don’t have an Account?"
+                    : "Already have an Account?",
+                style: FontStyles.textStyleRegular(fontSize: 19),
+              ),
+              Text(
+                providerObj.isLoginCliked ? "Register Here" : "Login Here",
+                style: isLogin
+                    ? FontStyles.textStyleBold(fontSize: 19, isUnderLine: false)
+                    : FontStyles.textStyleBold(fontSize: 19, isUnderLine: true),
+              ),
+            ],
+          ),
+        ),
+        Divider(
+          height: 40,
+          thickness: 1,
+          color: ColorPalette.darkGrayColor,
+        ),
+        socialLogin(),
+      ],
+    );
   }
 }
